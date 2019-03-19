@@ -12,6 +12,7 @@
 # vendor
 
 # Ignore configuration files that may contain sensitive information.
+core/
 sites/*/settings*.php
 sites/*/services*.yml
 
