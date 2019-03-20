@@ -1,3 +1,5 @@
+VERSION 8.6.12
+
 
 CONTENTS OF THIS FILE
 ---------------------
