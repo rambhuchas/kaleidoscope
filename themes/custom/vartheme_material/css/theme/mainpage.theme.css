@@ -3303,16 +3303,7 @@ body #sb-site {
 .block {
 	color:#fff
 }
-.block div {
-	position:relative;
-	top:50%;
-	-webkit-transform:translateY(-50%);
-	-moz-transform:translateY(-50%);
-	-ms-transform:translateY(-50%);
-	-o-transform:translateY(-50%);
-	transform:translateY(-50%)
-}
-.block.blue {
+ .block.blue {
 	background:#0EBCF3
 }
 .block.green {
@@ -7323,4 +7314,17 @@ body.remodal-is-active .remodal {
 }
 .lt-ie9 .remodal-close:hover.remodal-close:after,.lt-ie9 .remodal-close:active.remodal-close:after {
 	color: #3e5368
+}
+/****************************/
+.path-frontpage article footer, .path-frontpage article .content,.path-frontpage #edit-keys--description{
+	display: none;
+
+}
+.path-frontpage  .page-header{
+	font-size: 50px;
+	padding: 0px;
+	border: none;
+}
+.path-frontpage .input-group{
+	display: inline-block;
 }
