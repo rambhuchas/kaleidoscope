@@ -1025,6 +1025,9 @@ input.form-control, textarea.form-control {
 #themeblossom_loading_screen_logo img {
 	position: relative;
 	z-index: 2;
+	border: 10px solid #462e04;
+    border-radius: 70px;
+    background: red;
 }
 
 #themeblossom_loading_screen_logo .loader_ring {
@@ -1840,7 +1843,7 @@ ol.comment-list ul {
 	-webkit-transition: all 200ms ease-in-out;
 	-moz-transition: all 200ms ease-in-out;
 	opacity: 0.7;
-	width: 150px;
+	width: 60px;
 }
 
 #footer-logo:hover img {
@@ -2306,14 +2309,14 @@ ol.comment-list ul {
 	opacity: 0;
 	transition: 500ms all ease-in-out;
 	border-radius: 2px;
-	background: url('../../images/transparentB.png');
+	background: url('../img/transparentB.png');
 }
 
 .liberty_special_title {
 	position: relative;
 	padding: 15px;
 	border-radius: 2px;
-	background: url('../../images/transparentB.png');
+	background: url('../img/transparentB.png');
 }
 
 .tb-portfolio-carousel .slide_title h3, .liberty_special_title h1, .liberty_special_title h2, .liberty_special_title h3 {
@@ -2349,7 +2352,7 @@ ol.comment-list ul {
 
 .tb-portfolio-carousel .slide_title span, .liberty_special_title span {
 	border: 1px solid #fff;
-	background: url('../../images/transparentB.png');
+	background: url('../img/transparentB.png');
 	font-size: 20px;
 	text-transform: uppercase;
 	color: #fff;
