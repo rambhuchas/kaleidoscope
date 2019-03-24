@@ -18,7 +18,7 @@ framework:
 fonts:
   css:
     theme:
-      https://fonts.googleapis.com/css?family=Meera+Inimai': { type: external, minified: true }
+      https://fonts.googleapis.com/css?family=Meera+Inimai: { type: external, minified: true }
 
 # Vartheme Material framework RTL as which could be used to extend bootstrap/framework
 #          vartheme_material/framework-rtl = vartheme_material/bootstrap-rtl

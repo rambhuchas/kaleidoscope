@@ -4,8 +4,7 @@
 .footer-wrapper .footer {
   border: 0;
   padding-top: 0;
-  padding-bottom: 0;
-  margin-top: 45px;
+  padding-bottom: 0;  
 }
 .footer-wrapper .footer section[id$="-copyright"] {
   float: left;

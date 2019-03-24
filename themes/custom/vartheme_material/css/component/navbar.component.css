@@ -46,7 +46,10 @@ body.navbar-is-fixed-bottom {
 .navbar .logo {
   margin-right: -15px;
   padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 15px;  
+}
+.logo.navbar-btn img{
+  width: 150px;
 }
 @media screen and (min-width: 768px) {
   .navbar .logo {
