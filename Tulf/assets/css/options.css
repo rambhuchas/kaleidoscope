@@ -434,7 +434,7 @@ input[type="button"]:active,input[type="reset"]:active,input[type="submit"]:acti
 	border:1px solid #9F071A;
 }
 #main-footer {
-	background-image: linear-gradient(to top, #a56b07, #b1740c, #bc7d11, #c88716, #d4901b);
+	background-image: linear-gradient(to top, #69611e, #756b1b, #817518, #8d8013, #9a8a0a);
 }
 #main-footer a {
 	color:#ffffff;
@@ -996,4 +996,12 @@ span.onsale.new {
 }
 #featured-image.onevents {
 	height: 351px;
+}
+img.attachment-liberty-wide-thumbnail2.size-liberty-wide-thumbnail2.wp-post-image{
+	filter: grayscale(100%);
+}
+#twitter-widget{ 
+}
+#twitter-widget .SandboxRoot{
+	color: #fff;
 }
