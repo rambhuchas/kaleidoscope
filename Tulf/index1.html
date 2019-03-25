@@ -46,6 +46,8 @@
 <!-- / Yoast SEO plugin. -->
 <link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com'/>
 <link rel='dns-prefetch' href='//fonts.googleapis.com'/>
+<link href="https://fonts.googleapis.com/css?family=Meera+Inimai" rel="stylesheet">
+
 <link rel='dns-prefetch' href='//s.w.org'/>
 <script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/tbdemos.org\/liberty\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.10"}};
@@ -290,9 +292,17 @@ var dgxDonateAjax = {"ajaxurl":"http:\/\/tbdemos.org\/liberty\/wp-admin\/admin-a
 						<a target="_blank" href="#"><span aria-hidden="true" class="icon-pinterest2"></span></a>
 						<a target="_blank" href="#"><span aria-hidden="true" class="icon-youtube3"></span></a>
 					</div>
-				</div>
+				</div>				
 			</div>
 		</div>
+	</div>
+	<div class="transl-tion">
+			<div id="en-gb" style="float: left; margin: 0px 5px;">English</div>
+			<label class="switch">
+				<input type="checkbox" class="translate" checked>
+				<span class="slider round"></span>
+			</label>
+			<div id="zh-tw" style="float: right; margin: 0px 5px;">தமிழ்</div>
 	</div>
 	<div id="site-branding" class="header-main">
 		<div class="container">
@@ -343,7 +353,7 @@ var dgxDonateAjax = {"ajaxurl":"http:\/\/tbdemos.org\/liberty\/wp-admin\/admin-a
 						<li id="menu-item-892" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-892"><a href="#donate-now/">Donate Now</a></li>
 					</ul>
 					</li>
-					<li id="menu-item-893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-893"><a href="#contact/">Contact</a></li>
+					<li id="menu-item-893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-893"><a href="#contact/" key="CONTACT"  class="lang">Contact</a></li>					
 				</ul>
 			</div>
 			</nav>
@@ -391,7 +401,7 @@ var dgxDonateAjax = {"ajaxurl":"http:\/\/tbdemos.org\/liberty\/wp-admin\/admin-a
 									<div style="" class="tp-static-layers">
 										<!-- LAYER NR. 1 -->
 										<div class="tp-caption tp-resizeme tp-static-layer" id="slider-10-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-type="image" data-responsive_offset="on" data-startslide="0" data-endslide="3" data-frames='[{"from":"opacity:0;","speed":800,"to":"o:1;","delay":700,"ease":"Power2.easeInOut"},{"delay":5000,"speed":800,"to":"opacity:0;","ease":"nothing"}]' data-textalign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 5;text-transform:left;">
-											<img src="http://tbdemos.org/liberty/wp-content/plugins/revslider/admin/assets/images/dummy.png" alt="" data-ww="736px" data-hh="234px" width="736" height="234" data-lazyload="http://tbdemos.org/liberty/wp-content/uploads/2016/01/slide_container.png" data-no-retina>
+											<img src="http://tbdemos.org/liberty/wp-content/plugins/revslider/admin/assets/images/dummy.png" alt="" data-ww="736px" data-hh="234px" width="736" height="234" data-lazyload="assets/img/slide_container.png" data-no-retina>
 										</div>
 										<!-- LAYER NR. 2 -->
 										<div class="tp-caption Slider-Title tp-resizeme tp-static-layer" id="slider-10-layer-2" data-x="center" data-hoffset="" data-y="center" data-voffset="-35" data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on" data-startslide="0" data-endslide="3" data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":800,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]' data-textalign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]" data-paddingleft="[0,0,0,0]" style="z-index: 6; white-space: nowrap; font-size: 38px;text-transform:left;">
@@ -523,7 +533,7 @@ window.newsletter_check = function (f) {
 											JOIN OUR<br>
 											EFFORTS
 										</div>
-										<div class="col-xs-12 col-md-2 hidden-md hidden-lg">
+										<div class="col-xs-12 col-md-2 hidden-md hidden-lg lang" key="join-our">
 											JOIN OUR EFFORTS<br>
 											<br>
 										</div>
@@ -1576,6 +1586,8 @@ window.newsletter_check = function (f) {
 					<a class="twitter-timeline" href="https://twitter.com/SriLanka?ref_src=twsrc%5Etfw" data-chrome="transparent noheader nofooter noborders" data-tweet-limit="3">Tweets by SriLanka</a> 
 					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
+			<script src="//www.powr.io/powr.js?external-type=html"></script>
+			<div class="powr-media-gallery" id="e915b1de_1553538332"></div>
 
 			<div class=" col-sm-4 col-xs-12 " style="display:none;">
 				<aside id="twitter-2" class="widget_twitter_tweets widget widget_twitter">
@@ -1809,6 +1821,28 @@ var newsletter = {"messages":{"email_error":"The email is not correct","name_err
 				jQuery('#secondary, .custom-sidebar-widget').theiaStickySidebar({
 					// Settings
 					additionalMarginTop: 60				});
+			});
+		</script>
+		<script type="text/javascript">
+			var arrLang = {
+				"en-gb": {
+				"HOME": "Home",
+				"ABOUT": "About Us",
+				"CONTACT": "Contact Us",
+				"join-our":"JOIN OUR EFFORTS",
+				},
+				"zh-tw": {
+					"HOME": "首頁",
+					"ABOUT": "關於我們",
+					"CONTACT": "தொடர்பு",
+					"join-our":"எங்கள் முயற்சிகளை சேருங்கள்",
+				}
+			};
+			jQuery(".translate").click(function() {
+				var lang = jQuery(this).prop("checked") ? "zh-tw" : "en-gb";
+				jQuery(".lang").each(function(index, element) {
+					jQuery(this).text(arrLang[lang][jQuery(this).attr("key")]);
+				});
 			});
 		</script>
 </body>
