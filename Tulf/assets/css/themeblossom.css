@@ -913,6 +913,11 @@ input.form-control, textarea.form-control {
 		background: none !important;
 		left: 10px;
 	}
+	.transl-tion{
+		background: none !important;
+		left: 38%;
+		z-index: 999;
+	}
 }
 
 #main-logo-area-inline {
