@@ -7,7 +7,7 @@
 #main-logo-area {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url('http://tbdemos.org/liberty/wp-content/themes/liberty/images/logo_stars.png');
+	background-image:url('../img/logo_stars.png');
 }
 body {
 	background-color:#F9F9F9;
@@ -198,7 +198,7 @@ input[type="button"]:active,input[type="reset"]:active,input[type="submit"]:acti
 	background-size:cover;
 	background-attachment:scroll;
 	background-position:center top;
-	background-image:url('http://tbdemos.org/liberty/wp-content/uploads/2016/01/issues_header_no_change.jpg');
+	background-image:url('../img/issues_header_no_change.jpg');
 }
 #featured-image.onissues {
 	height:350px;
@@ -217,7 +217,7 @@ input[type="button"]:active,input[type="reset"]:active,input[type="submit"]:acti
 	background-size:cover;
 	background-attachment:scroll;
 	background-position:center bottom;
-	background-image:url('http://tbdemos.org/liberty/wp-content/uploads/2016/01/slide7_850.jpg');
+	background-image:url('../img/slide7_850.jpg');
 }
 #featured-image {
 	height:300px;
@@ -958,16 +958,16 @@ body div.product div#single-product-summary p.price,body div.product div#single-
 	visibility:hidden;
 }
 span.onsale {
-	background-image:url('http://tbdemos.org/liberty/wp-content/themes/liberty/images/ribbon_sale.png');
+	background-image:url('../img/ribbon_sale.png');
 }
 span.onsale.featured {
-	background-image:url('http://tbdemos.org/liberty/wp-content/themes/liberty/images/ribbon_featured.png');
+	background-image:url('../img/ribbon_featured.png');
 }
 span.onsale.free {
-	background-image:url('http://tbdemos.org/liberty/wp-content/themes/liberty/images/ribbon_free.png');
+	background-image:url('../img/ribbon_free.png');
 }
 span.onsale.new {
-	background-image:url('http://tbdemos.org/liberty/wp-content/themes/liberty/images/ribbon_new.png');
+	background-image:url('../img/ribbon_new.png');
 }
 #featured-image.onshop {
 	background-color:#ffffff;
@@ -975,7 +975,7 @@ span.onsale.new {
 	background-size:cover;
 	background-attachment:fixed;
 	background-position:left center;
-	background-image:url('http://tbdemos.org/liberty/wp-content/uploads/2015/09/shop_header.jpg');
+	background-image:url('../img/shop_header.jpg');
 }
 #featured-image.onshop {
 	height:300px;
@@ -992,7 +992,7 @@ span.onsale.new {
 	background-size:cover;
 	background-attachment:scroll;
 	background-position:center center;
-	background-image:url('http://tbdemos.org/liberty/wp-content/uploads/2016/01/events2_header_no_change.jpg');
+	background-image:url('../img/events2_header_no_change.jpg');
 }
 #featured-image.onevents {
 	height: 351px;
@@ -1000,7 +1000,7 @@ span.onsale.new {
 img.attachment-liberty-wide-thumbnail2.size-liberty-wide-thumbnail2.wp-post-image{
 	filter: grayscale(100%);
 }
-#twitter-widget{ 
+#twitter-widget{
 }
 #twitter-widget .SandboxRoot{
 	color: #fff;
