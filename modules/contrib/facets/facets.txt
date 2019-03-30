@@ -1,0 +1,214 @@
+diff --git a/facets.libraries.yml b/facets.libraries.yml
+index 8e08f96..e898dc4 100644
+--- a/facets.libraries.yml
++++ b/facets.libraries.yml
+@@ -52,3 +52,13 @@ soft-limit:
+     - core/jquery
+     - core/jquery.once
+     - core/drupalSettings
++
++drupal.facets.views-ajax:
++  js:
++    js/facets-views-ajax.js: {}
++  dependencies:
++    - core/jquery
++    - core/jquery.once
++    - core/drupal
++    - core/drupalSettings
++    - core/drupal.ajax
+diff --git a/js/checkbox-widget.js b/js/checkbox-widget.js
+index f8dca29..71d06f3 100644
+--- a/js/checkbox-widget.js
++++ b/js/checkbox-widget.js
+@@ -51,7 +51,7 @@
+       label.find('.js-facet-deactivate').remove();
+     }
+ 
+-    $link.before(checkbox).before(label).remove();
++    $link.before(checkbox).before(label).hide();
+ 
+   };
+ 
+diff --git a/js/dropdown-widget.js b/js/dropdown-widget.js
+index 4b524d1..8367236 100644
+--- a/js/dropdown-widget.js
++++ b/js/dropdown-widget.js
+@@ -61,7 +61,7 @@
+       }
+ 
+       // Replace links with dropdown.
+-      $ul.after($dropdown).remove();
++      $ul.after($dropdown).hide();
+       Drupal.attachBehaviors(document, Drupal.settings);
+     });
+   };
+diff --git a/js/facets-views-ajax.js b/js/facets-views-ajax.js
+new file mode 100644
+index 0000000..8e17fdb
+--- /dev/null
++++ b/js/facets-views-ajax.js
+@@ -0,0 +1,62 @@
++/**
++ * @file
++ * Facets Views AJAX handling.
++ */
++
++/**
++ * @name FacetsViewsAjaxSettings
++ * @property {String} view_id
++ * @property {String} current_display_id
++ * @property {String} view_base_path
++ */
++
++/**
++ * @property {FacetsViewsAjaxSettings[]} drupalSettings.facets_views_ajax
++ */
++
++
++(function ($, Drupal) {
++  'use strict';
++
++  /**
++   * Trigger views AJAX refresh on click.
++   */
++  Drupal.behaviors.facetsViewsAjax = {
++    attach: function (context, settings) {
++
++      $.each(settings.facets_views_ajax, function (facetId, facetSettings) {
++        $('ul[data-drupal-facet-id=' + facetId + ']  li').once().click(function (e) {
++          e.preventDefault();
++          var facetLink = $(this).find('a');
++          var view = $('.view-id-' + facetSettings.view_id + '.view-display-id-' + facetSettings.current_display_id).first();
++
++          var start = view.attr('class').indexOf('js-view-dom-id-');
++          var end = view.attr('class').indexOf(' ', start);
++          var current_dom_id = view.attr('class').substr(start + 15, (view.attr('class').length - start - 15 - end));
++
++          if (typeof Drupal.views.instances['views_dom_id:' + current_dom_id] === 'undefined') {
++            return;
++          }
++
++          var views_parameters = Drupal.Views.parseQueryString(facetLink.attr('href'));
++          var views_arguments = Drupal.Views.parseViewArgs(facetLink.attr('href'), facetSettings.view_base_path);
++
++          var views_settings = $.extend(
++            {},
++            Drupal.views.instances['views_dom_id:' + current_dom_id].settings,
++            views_arguments,
++            views_parameters
++          );
++
++          var views_ajax_settings = Drupal.views.instances['views_dom_id:' + current_dom_id].element_settings;
++          views_ajax_settings.submit = views_settings;
++
++          //var views_ajax_settings = Drupal.block.;
++
++          Drupal.ajax(views_ajax_settings).execute();
++        });
++      });
++    }
++  };
++
++})(jQuery, Drupal);
+diff --git a/src/FacetSource/FacetSourcePluginBase.php b/src/FacetSource/FacetSourcePluginBase.php
+index 14317fb..9a470f8 100644
+--- a/src/FacetSource/FacetSourcePluginBase.php
++++ b/src/FacetSource/FacetSourcePluginBase.php
+@@ -119,6 +119,13 @@ abstract class FacetSourcePluginBase extends PluginBase implements FacetSourcePl
+   /**
+    * {@inheritdoc}
+    */
++  public function buildFacet() {
++    return [];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
+   public function getCount() {
+     global $pager_total_items;
+     // Exposing a global here. This is pretty ugly but the only way to get the
+diff --git a/src/FacetSource/FacetSourcePluginInterface.php b/src/FacetSource/FacetSourcePluginInterface.php
+index 733ad79..93f30ab 100644
+--- a/src/FacetSource/FacetSourcePluginInterface.php
++++ b/src/FacetSource/FacetSourcePluginInterface.php
+@@ -98,4 +98,14 @@ interface FacetSourcePluginInterface extends PluginFormInterface, DependentPlugi
+    */
+   public function getSearchKeys();
+ 
++  /**
++   * Builds and returns an extra renderable array for this facet block plugin.
++   *
++   * @return array
++   *   A renderable array representing the content of the block.
++   *
++   * @see Drupal\facets\Plugin\facets\facet_source\SearchApiDisplay
++   */
++  public function buildFacet();
++
+ }
+diff --git a/src/Plugin/Block/FacetBlock.php b/src/Plugin/Block/FacetBlock.php
+index 9d3870d..5c48a55 100644
+--- a/src/Plugin/Block/FacetBlock.php
++++ b/src/Plugin/Block/FacetBlock.php
+@@ -81,6 +81,13 @@ class FacetBlock extends BlockBase implements ContainerFactoryPluginInterface {
+     // Let the facet_manager build the facets.
+     $build = $this->facetManager->build($facet);
+ 
++    // Add extra elements from facet source.
++    // For example, ajax scripts.
++    // @see Drupal\facets\Plugin\facets\facet_source\SearchApiDisplay
++    /** @var \Drupal\facets\FacetSource\FacetSourcePluginInterface $facet_source */
++    $facet_source = $facet->getFacetSource();
++    $build += $facet_source->buildFacet();
++
+     // Add contextual links only when we have results.
+     if (!empty($build)) {
+       $build['#contextual_links']['facets_facet'] = [
+diff --git a/src/Plugin/facets/facet_source/SearchApiDisplay.php b/src/Plugin/facets/facet_source/SearchApiDisplay.php
+index 0cda62b..6fe4778 100644
+--- a/src/Plugin/facets/facet_source/SearchApiDisplay.php
++++ b/src/Plugin/facets/facet_source/SearchApiDisplay.php
+@@ -321,4 +321,42 @@ class SearchApiDisplay extends FacetSourcePluginBase {
+       ->createInstance($this->pluginDefinition['display_id']);
+   }
+ 
++  /**
++   * Return the Search API display source view, if any.
++   *
++   * @return \Drupal\views\Views
++   *   Current view or FALSE.
++   */
++  public function getView() {
++    $display_definition = $this->getDisplay()->getPluginDefinition();
++    if (isset($display_definition['view_id'])) {
++      $view = Views::getView($display_definition['view_id']);
++      $view->setDisplay($display_definition['view_display']);
++      return $view;
++    }
++    return FALSE;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildFacet() {
++    $build = parent::buildFacet();
++    /** @var \Drupal\views\ViewExecutable $view */
++    if ($view = $this->getView()) {
++      // Add JS for Views with Ajax Enabled.
++      if ($view->display_handler->ajaxEnabled()) {
++        $js_settings = [
++          'view_id' => $view->id(),
++          'current_display_id' => $view->current_display,
++          'view_base_path' => ltrim($view->getPath(), '/'),
++        ];
++        $build['#attached']['library'][] = 'facets/drupal.facets.views-ajax';
++        $build['#attached']['drupalSettings']['facets_views_ajax'] = [
++          $this->facet->id() => $js_settings,
++        ];
++      }
++    }
++    return $build;
++  }
+ }

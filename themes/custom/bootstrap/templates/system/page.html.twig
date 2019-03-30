@@ -161,8 +161,100 @@
 
 {% if page.footer %}
   {% block footer %}
-    <footer class="footer {{ container }}" role="contentinfo">
-      {{ page.footer }}
-    </footer>
+    <div class="footer-wrapper">
+      <footer class="footer" role="contentinfo">
+        {{ page.footer }}
+      </footer>
+      <footer>
+<div class="container">
+	<div class="padding">
+		<div id="up-arrow">
+			<a href="https://getgrav.org/#" id="totop"><i class="fa fa-angle-up pulse infinite animated"></i></a>
+		</div>
+		<a href="https://getgrav.org/downloads" class="button button-solid button-fancy">
+		Download Grav </a>
+		<style>
+          #mc_embed_signup form {text-align:center; padding:10px 0 10px 0;}
+          .mc-field-group { display: inline-block; } /* positions input field horizontally */
+          #mc_embed_signup input.email {font-family:"Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif; font-size: 15px; border: 1px solid #ABB0B2;  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color: #343434; background-color: #fff; box-sizing:border-box; height:32px; padding: 0px 0.4em; display: inline-block; margin: 0; width:350px; vertical-align:top;}
+          #mc_embed_signup label {display:block; font-size:16px; padding-bottom:10px; font-weight:bold;}
+          #mc_embed_signup .clear {display: inline-block;} /* positions button horizontally in line with input */
+          #mc_embed_signup .button {font-size: 13px; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; letter-spacing: .03em; color: #fff; background-color: #aaa; box-sizing:border-box; height:32px; line-height:32px; padding:0 18px; display: inline-block; margin: 0; transition: all 0.23s ease-in-out 0s;}
+          #mc_embed_signup .button:hover {background-color:#777; cursor:pointer;}
+          #mc_embed_signup div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
+          #mc_embed_signup div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
+          #mc_embed_signup #mce-error-response {display:none;}
+          #mc_embed_signup #mce-success-response {color:#529214; display:none;}
+          #mc_embed_signup label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
+          @media (max-width: 768px) {
+              #mc_embed_signup input.email {width:100%; margin-bottom:5px;}
+              #mc_embed_signup .clear {display: block; width: 100% }
+              #mc_embed_signup .button {width: 100%; margin:0; }
+          }
+          #mc_embed_signup{ clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          #mc_embed_signup input.email { vertical-align: baseline; height: 35px; }
+          #mc_embed_signup .button { height: 35px; line-height: 38px; background-color: #0ec1f6; }
+		</style>
+		<div>
+			<h4>Never miss a thing, sign up to the Grav mailing list</h4>
+			<!-- Begin Mailchimp Signup Form -->
+			<div id="mc_embed_signup">
+				<form action="https://getgrav.us13.list-manage.com/subscribe/post?u=5e74b7192cbe99f46f82dc17f&amp;id=8156f2cdbd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+					<div id="mc_embed_signup_scroll">
+						<div class="mc-field-group">
+							<input type="email" value="" placeholder="email address" name="EMAIL" class="required email" id="mce-EMAIL" aria-required="true">
+						</div>
+						<div id="mce-responses" class="clear">
+							<div class="response" id="mce-error-response" style="display:none">
+							</div>
+							<div class="response" id="mce-success-response" style="display:none">
+							</div>
+						</div>
+						<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+						<div style="position: absolute; left: -5000px;" aria-hidden="true">
+							<input type="text" name="b_5e74b7192cbe99f46f82dc17f_8156f2cdbd" tabindex="-1" value="">
+						</div>
+						<div class="clear">
+							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--End mc_embed_signup-->
+		</div>
+		<div class="row">
+			<div class="six columns right">
+				<p>
+					<a href="http://getgrav.org/">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com/">RocketTheme</a>
+				</p>
+				<p>
+					 CDN provided by <a href="http://maxcdn.com/"><i class="fa fa-maxcdn"></i> MaxCDN</a>
+				</p>
+				<p>
+					 Designed by <a href="https://dribbble.com/eduardo">Eduardo Santos</a>
+				</p>
+			</div>
+			<div class="six columns left">
+				<ul>
+					<li><a href="mailto:contact@getgrav.org">Contact the Grav Team</a></li>
+					<li><a href="https://getgrav.org/about">About Grav</a></li>
+					<li><a href="https://getgrav.org/media">Grav Media</a> Information</li>
+					<li><a href="https://getgrav.org/blog.atom">Grav News Feed</a></li>
+				</ul>
+			</div>
+		</div>
+		<p>
+			 Crazy Fast VPS Hosting <a href="https://www.linode.com/?r=300c424631b602daaa0ecef22912c1c26c81e3af">Sponsored by Linode</a> - managed by <a href="https://www.serverpilot.io/?refcode=fb58eb54aecc">ServerPilot</a> - monitoring by <a href="https://pingometer.com/">Pingometer</a>
+		</p>
+		<p>
+			 Copyright @2019 - Grav CMS - All rights reserved - Grav is released under the <a href="https://github.com/getgrav/grav/blob/develop/LICENSE.txt">MIT license</a>
+		</p>
+	</div>
+</div>
+</footer>
+
+
+
+    </div>
   {% endblock %}
 {% endif %}
