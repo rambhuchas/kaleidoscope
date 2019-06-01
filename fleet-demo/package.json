@@ -1,0 +1,14 @@
+{
+  "name": "FleetMaintenance",
+  "version": "0.0.1",
+  "description": "Fleet Maintenance",
+  "private": true,
+  "scripts": {
+    "start": "node service/FleetReportGenerator.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "dotenv": "4.0.0",
+    "mysql": "^2.16.0"
+  }
+}

@@ -1,0 +1,124 @@
+;; -*- mode: org; mode: beancount; -*-
+;; Birth: 1980-05-12
+;; Dates: 2017-01-01 - 2019-05-29
+;; THIS FILE HAS BEEN AUTO-GENERATED.
+* Options
+
+option "title" "Cab Expenses Beancount File"
+option "operating_currency" "INR"
+
+* Commodities
+
+1792-01-01 commodity INR
+  export: "CASH"
+  name: "Indian Rupees"
+
+* Equity Accounts
+
+1980-05-12 open Equity:Opening-Balances
+1980-05-12 open Liabilities:AccountsPayable
+1980-05-12 open Liabilities:AccountsPayable:Bala
+1980-05-12 open Liabilities:AccountsPayable:Sathya
+
+* Sources of Income
+
+2019-05-01 open Income:IND:GVBB:Collection                      INR
+
+* Expenses
+1980-05-12 open Expenses:Food:Veggies
+1980-05-12 open Expenses:Food:ROWater
+1980-05-12 open Expenses:Food:Groceries
+1980-05-12 open Expenses:Food:Restaurant
+1980-05-12 open Expenses:Food:Coffee
+1980-05-12 open Expenses:Food:Alcohol
+1980-05-12 open Expenses:Transport:Auto
+1980-05-12 open Expenses:Home:Rent
+1980-05-12 open Expenses:Home:Electricity
+1980-05-12 open Expenses:Home:Internet
+1980-05-12 open Expenses:Home:Phone
+1980-05-12 open Expenses:Financial:Fees
+1980-05-12 open Expenses:Financial:Commissions
+1980-05-12 open Expenses:Perumal:Flowers
+1980-05-12 open Expenses:Food:Fruits
+1980-05-12 open Expenses:Perumal:Accessories
+
+* Banking
+
+2017-01-01 open Assets:IND:AndhraBank
+  address: "Oil Mill Rd, Iyyappanthangal"
+  institution: "Andhra Bank"
+  phone: "+91.44.1234.5678"
+2017-01-01 open Assets:IND:AndhraBank:Savings                        INR
+  account: "00234-48574897"
+
+* Cash
+
+2019-05-18 balance Assets:IND:AndhraBank:Savings        20000.00 INR
+
+2019-05-19 * "Goshti" "Evening Tea"
+  Assets:IND:AndhraBank:Savings                        -60.00 INR
+  Expenses:Food:Coffee                              60.00 INR
+
+2019-05-19 * "Perumal" "Flower"
+  Assets:IND:AndhraBank:Savings                        -300.00 INR
+  Expenses:Perumal:Flowers                              300.00 INR
+
+2019-05-19 * "Groceries" "Rava and Sugar"
+  Assets:IND:AndhraBank:Savings                        -65.00 INR
+  Expenses:Food:Groceries                              65.00 INR
+
+2019-05-19 * "Mineral Water" "Buying RO Water 5 Cans"
+  Assets:IND:AndhraBank:Savings                        -70.00 INR
+  Expenses:Transport:Auto                              70.00 INR
+
+2019-05-19 * "Mineral Water" "Buying RO Water 5 Cans"
+  Assets:IND:AndhraBank:Savings                        -50.00 INR
+  Expenses:Food:ROWater                              50.00 INR
+
+2019-05-20 * "Groceries" "Buying basic groceries"
+  Assets:IND:AndhraBank:Savings                        -380.00 INR
+  Expenses:Food:Groceries                              380.00 INR
+
+2019-05-20 * "Veggies" "Buying basic veggies"
+  Assets:IND:AndhraBank:Savings                        -170.00 INR
+  Expenses:Food:Veggies                              170.00 INR
+
+2019-05-20 * "Groceries" "Buying bulk groceries"
+  Assets:IND:AndhraBank:Savings                        -4000.00 INR
+  Expenses:Food:Groceries                              4000.00 INR
+
+2019-05-21 * "Fruits" "Tirupati Group Sendoff"
+  Assets:IND:AndhraBank:Savings                        -460.00 INR
+  Expenses:Food:Fruits                              460.00 INR
+
+2019-05-21 * "Transportation" "Gangabhai Chathram"
+  Assets:IND:AndhraBank:Savings                        -80.00 INR
+  Expenses:Transport:Auto                              80.00 INR
+
+2019-05-21 * "Mineral Water" "Home Delivered RO Water 8 Cans"
+  Assets:IND:AndhraBank:Savings                        -160.00 INR
+  Expenses:Food:ROWater                              160.00 INR
+
+2019-05-01 * "GVBB" "Lokesh Collection"
+  Assets:IND:AndhraBank:Savings                         20000.00 INR
+  Income:IND:GVBB:Collection                        -20000.00 INR
+
+2019-05-22 * "Transportation" "Chinna Kanchi"
+  Assets:IND:AndhraBank:Savings                     -250.00 INR
+  Expenses:Transport:Auto                            250.00 INR
+
+2019-05-10 * "Perumal" "Kurralam Advance"
+  Liabilities:AccountsPayable:Bala                  -300.00 INR
+  Expenses:Perumal:Accessories                           300.00 INR
+
+2019-05-25 * "Accessories" "Advance Repayment"
+  Assets:IND:AndhraBank:Savings             -100.00 INR
+  Liabilities:AccountsPayable:Bala                  100.00 INR
+
+2019-05-20 * "Groceries" "Adhoc Purchase"
+  Liabilities:AccountsPayable:Sathya                  -250.00 INR
+  Expenses:Food:Veggies                           250.00 INR
+
+2019-05-25 * "Accessories" "Advance Repayment"
+  Assets:IND:AndhraBank:Savings             -200.00 INR
+  Liabilities:AccountsPayable:Sathya                  200.00 INR
