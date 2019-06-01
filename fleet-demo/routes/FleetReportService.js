@@ -143,7 +143,7 @@ exports.getVehiclePerf = function(req, res){
   });
   connection.connect();
 
-  connection.query("SELECT * FROM ( SELECT `Car number` AS CarNumber , -- `Driver name` , MONTH(str_to_date(DATE,'%m-%d-%Y')) AS mont, SUM(`Total Trip KMs`) AS netearn FROM dev_01_magizhunthu.`Account Summary - OLA` WHERE MONTH(str_to_date( DATE,'%m-%d-%Y')) =" + query.month +" AND YEAR(str_to_date(DATE,'%m-%d-%Y')) = " + query.year + " GROUP BY `Car number`, -- `Driver name`, mont ) T ORDER BY netearn DESC",[], function (error, results, fields) {
+  connection.query("SELECT * FROM ( SELECT `Car number` AS CarNumber ,  MONTH(str_to_date(DATE,'%m-%d-%Y')) AS mont, SUM(`Total Trip KMs`) AS netearn FROM dev_01_magizhunthu.`Account Summary - OLA` WHERE MONTH(str_to_date( DATE,'%m-%d-%Y')) = " + query.month +" AND YEAR(str_to_date(DATE,'%m-%d-%Y')) = " + query.year + " GROUP BY `Car number`, mont ) T ORDER BY netearn DESC",[], function (error, results, fields) {
    if (error) throw error;
    res.setHeader('Content-Type', 'application/json');
    res.end(JSON.stringify(results));
