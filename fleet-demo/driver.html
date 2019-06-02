@@ -5,61 +5,26 @@
   	<script src="/d3.v3.min.js"></script>
 	  <script src="/dimple.v2.1.2.min.js"></script>
 	  <script src="/jquery-3.3.1.min.js"></script>
+
+
+   <link rel="icon" type="image/png" href="/car-152-232990.webp" />
+
 	  <script src="/jquery-editable-select.min.js"></script>
 	  <link rel="stylesheet" type="text/css" href="/jquery-editable-select.min.css"/>
 		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 
     <style>
-    body {
-      margin: 50px;
-    }
+
     </style>
  </head>
  <body>
-	 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	   <a class="navbar-brand" href="#">Navbar</a>
-	   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	     <span class="navbar-toggler-icon"></span>
-	   </button>
 
-	   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	     <ul class="navbar-nav mr-auto">
-	       <li class="nav-item active">
-	         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	       </li>
-
- 				<li class="nav-item">
- 					<a class="nav-link" href="/driver">Drivers</a>
- 				</li>
-
- 				<li class="nav-item">
- 					<a class="nav-link" href="/vehicle">Vehicle</a>
- 				</li>
-	       <li class="nav-item dropdown">
-	         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	           Dropdown
-	         </a>
-	         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	           <a class="dropdown-item" href="#">Action</a>
-	           <a class="dropdown-item" href="#">Another action</a>
-	           <div class="dropdown-divider"></div>
-	           <a class="dropdown-item" href="#">Something else here</a>
-	         </div>
-	       </li>
-	       <li class="nav-item">
-	         <a class="nav-link disabled" href="#">Disabled</a>
-	       </li>
-	     </ul>
-	     <form class="form-inline my-2 my-lg-0">
-	       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	     </form>
-	   </div>
-	 </nav>
-
+	  <div id="menu"></div>
+<div class="main-cont">
 		<script type="text/javascript">
+		$("#menu").load("/menu");
 		var drivers = {}, reportDetails = {};
-		var actions = JSON.parse('{"select1":"VASU A","select2":"CollectionAmount"}');
+		var actions = JSON.parse('{"select1":"William","select2":"CollectionAmount"}');
 		function LoadData(method,control,value,callbackcheck, callbackFunction)
 		{
 			$.ajax({
@@ -70,7 +35,7 @@
 						var a = "selected";
 						$.each(data, function(i, d) {
 							// You will need to alter the below to get the right values from your json object.  Guessing that d.id / d.modelName are columns in your carModels data
-							$(control).append('<option value="' + d[value] + '" '+ ((d[value] == "VASU A" || d[value] == "CollectionAmount") ? a : "") +'>' + d[value] + '</option>');
+							$(control).append('<option value="' + d[value] + '" '+ ((d[value] == "William" || d[value] == "CollectionAmount") ? a : "") +'>' + d[value] + '</option>');
 						});
 						$(control).editableSelect({ effects: 'fade' })
 						.on('select.editable-select', function (e, li) {
@@ -94,7 +59,10 @@
 		}
 		</script>
 <h1>Drivers Fleet Management</h1>
-<div>
+<div style="
+    float: left;
+    margin-right: 120px;
+">
 		<span>Drivers:</span>
 		<select class="form-control" style="width:169px" id="select1">
 		</select>
@@ -103,8 +71,9 @@
 		<select class="form-control" style="width:169px"  id="select2">
 		</select>
 		</div>
+		<hr/>
 <div id='chartContainer2' style='display:inline-block'>
-		<h1><span class="last-selected">VASU A</span></h1>
+		<h1><span class="last-selected">William</span></h1>
 		<h2>driver: <span ID="last-selected1">Collection Amount</span></h2>
 		<script type="text/javascript">
 			var svg2 = dimple.newSvg('#chartContainer2', 600,400);
@@ -174,6 +143,6 @@
 		</script>
 	</div>
 
-
+</div>
  </body>
 </html>

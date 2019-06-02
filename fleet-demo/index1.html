@@ -5,179 +5,143 @@
   	<script src="/d3.v3.min.js"></script>
 	  <script src="/dimple.v2.1.2.min.js"></script>
 	  <script src="/jquery-3.3.1.min.js"></script>
+		<link rel="icon" type="image/png" href="/car-152-232990.webp" />
 	  <script src="/jquery-editable-select.min.js"></script>
 	  <link rel="stylesheet" type="text/css" href="/jquery-editable-select.min.css"/>
+
+
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css"/>
+
 		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 
     <style>
-    body {
-      margin: 50px;
-    }
-    </style>
+
+		.tiles-grid a {
+		    color: #fff;
+		}
+		.tiles-grid {
+		    position: relative;
+		    display: grid;
+		    grid-template-columns: repeat(auto-fit, 70px);
+		    grid-template-rows: repeat(auto-fit, 70px);
+		    grid-gap: 10px;
+		}
+		.tiles-grid .tile-medium {
+		    grid-column: span 2;
+		    grid-row: span 2;
+		}
+		.tile-medium {
+		    width: 150px;
+		    height: 150px;
+		}
+		.tile-small, .tile-medium, .tile-wide, .tile-large, .tile-app {
+		    display: block;
+		    background-color: #1ba1e2;
+		    color: #ffffff;
+		    width: 150px;
+		    height: 150px;
+		    -webkit-box-shadow: inset 0 0 1px #FFFFCC;
+		    box-shadow: inset 0 0 1px #FFFFCC;
+		    cursor: pointer;
+		    position: relative;
+		    overflow: hidden;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		}
+		.tile-small .icon, .tile-medium .icon, .tile-wide .icon, .tile-large .icon, .tile-app .icon {
+		    max-width: 33%;
+		    height: 33%;
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    -webkit-transform: translateY(-50%) translateX(-50%);
+		    transform: translateY(-50%) translateX(-50%);
+		    font-size: 50px;
+		    line-height: 50px;
+		    z-index: 2;
+		}
+		[class*=mif-] {
+		    font-family: 'metro' !important;
+		    speak: none;
+		    font-style: normal;
+		    font-weight: normal;
+		    font-variant: normal;
+		    text-transform: none;
+		    display: inline-block;
+		    position: relative;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+		}
+		.mif-facebook:before {
+		    content: "\f09a";
+		}
+
+		.tile-wide .branding-bar, .tile-app .branding-bar, .tile-medium .branding-bar{
+		    height: 32px;
+		    line-height: 32px;
+		    position: absolute;
+		    left: 0;
+		    bottom: 0;
+		    right: 0;
+		    padding: 0 10px 5px;
+		    font-size: 0.875rem;
+		    font-weight: 500;
+		    overflow: hidden;
+		    white-space: nowrap;
+		    text-overflow: ellipsis;
+		    z-index: 2;
+		}
+
+  </style>
  </head>
  <body>
-	 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	   <a class="navbar-brand" href="#">Navbar</a>
-	   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	     <span class="navbar-toggler-icon"></span>
-	   </button>
-
-	   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	     <ul class="navbar-nav mr-auto">
-	       <li class="nav-item active">
-	         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	       </li>
-
-	       <li class="nav-item">
-	         <a class="nav-link" href="/driver">Drivers</a>
-	       </li>
-
-	       <li class="nav-item">
-	         <a class="nav-link" href="/vehicle">Vehicle</a>
-	       </li>
-				 <li class="nav-item">
-					 <a class="nav-link" href="/vehicleperf">Vehicle performance</a>
-				 </li>
-
-	       <li class="nav-item dropdown">
-	         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	           Dropdown
-	         </a>
-	         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	           <a class="dropdown-item" href="#">Action</a>
-	           <a class="dropdown-item" href="#">Another action</a>
-	           <div class="dropdown-divider"></div>
-	           <a class="dropdown-item" href="#">Something else here</a>
-	         </div>
-	       </li>
-	       <li class="nav-item">
-	         <a class="nav-link disabled" href="#">Disabled</a>
-	       </li>
-	     </ul>
-	     <form class="form-inline my-2 my-lg-0">
-	       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	     </form>
-	   </div>
-	 </nav>
-
-		<script type="text/javascript">
-		var drivers = {}, reportDetails = {};
-		var actions = JSON.parse('{"select1":"VASU A","select2":"CollectionAmount"}');
-		function LoadData(method,control,value,callbackcheck, callbackFunction)
-		{
-			$.ajax({
-					type: "GET",
-					url: method,
-					success: function(data){
-						// Use jQuery's each to iterate over the opts value
-						var a = "selected";
-						$.each(data, function(i, d) {
-							// You will need to alter the below to get the right values from your json object.  Guessing that d.id / d.modelName are columns in your carModels data
-							$(control).append('<option value="' + d[value] + '" '+ ((d[value] == "VASU A" || d[value] == "CollectionAmount") ? a : "") +'>' + d[value] + '</option>');
-						});
-						$(control).editableSelect({ effects: 'fade' })
-						.on('select.editable-select', function (e, li) {
-							$(callbackcheck).html(
-								li.text()
-							);
-							actions[e.currentTarget.attributes["id"].nodeValue] = li.text();
-							if(typeof callbackFunction == "function")
-							{
-								callbackFunction(actions);
-							}
-							else
-							{
-								jQuery.each(callbackFunction, function(i, eachVal){
-									eachVal(actions);
-								  });
-							}
-						});
-					}
-				});
-		}
-		</script>
-<h1>Drivers Fleet Management</h1>
-<div>
-		<span>Drivers:</span>
-		<select class="form-control" style="width:169px" id="select1">
-		</select>
-		</div><div style="margin-top:10px">
-		<span>  Details:</span>
-		<select class="form-control" style="width:169px"  id="select2">
-		</select>
-		</div>
-<div id='chartContainer2' style='display:inline-block'>
-		<h1><span class="last-selected">VASU A</span></h1>
-		<h2>driver: <span ID="last-selected1">Collection Amount</span></h2>
-		<script type="text/javascript">
-			var svg2 = dimple.newSvg('#chartContainer2', 600,400);
-			var ChartInstance;
-			d3.json('/getfleetreport?name=' + actions["select1"] + '&reportfor=' + actions["select2"], function(data) {
-				$('#MonthID').html(data[0].Month);
-				ChartInstance = new dimple.chart(svg2,data);
-				var x = ChartInstance.addCategoryAxis('x', 'Date');
-				var y = ChartInstance.addMeasureAxis('y', actions["select2"]);
-				ChartInstance.setBounds(60,30,510,305);
-				var s = ChartInstance.addSeries(["Month"], dimple.plot.bar);
-				ChartInstance.addLegend(60, 10, 510, 20, "right");
-				ChartInstance.draw(1000);
-				});
-
-			$( document ).ready(function() {
-				LoadData("/getDrivers",'#select1', "Driver name",'.last-selected',[drawBarSVGX , drawBarPIE]);
-				LoadData("/getreportparams",'#select2', "ReportFor",'#last-selected1',drawBarSVGY);
-			});
-			function drawBarSVGX(actions)
-			 {
-				d3.json('/getfleetreport?name=' + actions["select1"] + '&reportfor=' + actions["select2"], function(data) {
-					$('#MonthID').html(data[0].Month);
-					ChartInstance.data = data;
-					ChartInstance.draw(1000);
-				});
-			 }
-			 function drawBarSVGY(actions)
-			 {
-				d3.json('/getfleetreport?name=' + actions["select1"] + '&reportfor=' + actions["select2"], function(data) {
-					$('#MonthID').html(data[0].Month);
-					ChartInstance.data = data;
-					ChartInstance.axes[1].measure = actions["select2"];
-					ChartInstance.draw(1000);
-				});
-			 }
-		</script>
-		</div>
-
-	<div id='PiechartContainer12' style='display:inline-block'>
-		<br >
-		<h3>Share By CollectionAmount, PendingSettlement, DriverEarnings, Incentives </h3>
-        <h4><i>*For the month of <span id="MonthID">Month</span> 2018 </i><h4>
-		<script type="text/javascript">
-			var svg12 = dimple.newSvg("#PiechartContainer12", 590, 400);
-			var ChartInstance1;
-
-
-			d3.json('/getconsolidateddate?name=' + actions["select1"], function(data) {
-				$('#MonthID').html(data[0].Month);
-				ChartInstance1 = new dimple.chart(svg12, data);
-				ChartInstance1.setBounds(20, 20, 460, 360)
-				ChartInstance1.addMeasureAxis("p", ["Amount"]);
-				ChartInstance1.addSeries( ["AmountType"], dimple.plot.pie);
-				ChartInstance1.addLegend(500, 20, 90, 300, "left");
-				ChartInstance1.draw();
-				});
-
-			function drawBarPIE(actions)
-			 {
-				d3.json('/getconsolidateddate?name=' + actions["select1"], function(data) {
-					ChartInstance1.data = data;
-					ChartInstance1.draw();
-				});
-			 }
-
-		</script>
-	</div>
-
-
+	 <div id="menu"></div>
+	 <div class="main-cont">
+		 <div class="example" style=" margin: 16% 16%;">
+         <div class="tiles-grid">
+             <div data-role="tile" class="tile-medium" data-role-tile="true">
+							 	<a href="/driver">
+								 <span class="mif icon">
+                   <i class="fa fa-dharmachakra"></i>
+								 </span>
+                 <span class="branding-bar">Drivers</span>
+								</a>
+             </div>
+             <div data-role="tile" class="tile-medium" data-size="wide" class="tile-wide" data-role-tile="true">
+							 	<a href="/vehicle">
+								 <span class="mif-cart icon">
+								 			<i class="fa fa-car"></i>
+								 </span>
+                 <span class="branding-bar">Vehicles</span>
+							 </a>
+             </div>
+						 <div data-role="tile" class="tile-medium"  data-size="wide" class="tile-wide" data-role-tile="true">
+							 	<a href="/vehicleperf">
+									<span class="mif-cart icon">
+	                  <i class="fa fa-tachometer-alt"></i>
+									</span>
+									<span class="branding-bar">Vehicle Performance</span>
+								</a>
+						</div>
+						<div data-role="tile" class="tile-medium"  data-size="wide" class="tile-wide" data-role-tile="true">
+								<span class="mif-cart icon">
+								<i class="fa fa-address-card"></i>
+							</span>
+								<span class="branding-bar">About</span>
+						</div>
+						<div data-role="tile"  class="tile-medium" data-size="wide" class="tile-wide" data-role-tile="true">
+								<span class="mif-cart icon">
+								<i class="fa fa-phone-square"></i>
+							</span>
+								<span class="branding-bar">Contact</span>
+						</div>
+         </div>
+     </div>
+   </div>
+	<script type="text/javascript">
+	$("#menu").load("/menu");
+	</script>
  </body>
 </html>
