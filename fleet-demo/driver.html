@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-  	<script src="/d3.v3.min.js"></script>
-	  <script src="/dimple.v2.1.2.min.js"></script>
-	  <script src="/jquery-3.3.1.min.js"></script>
-
-
-   <link rel="icon" type="image/png" href="/car-152-232990.webp" />
-
-	  <script src="/jquery-editable-select.min.js"></script>
-	  <link rel="stylesheet" type="text/css" href="/jquery-editable-select.min.css"/>
-		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-
-    <style>
-
-    </style>
- </head>
- <body>
-
-	  <div id="menu"></div>
+<meta charset="utf-8">
+<script src="/d3.v3.min.js"></script>
+<script src="/dimple.v2.1.2.min.js"></script>
+<script src="/jquery-3.3.1.min.js"></script>
+<link rel="icon" type="image/png" href="/car-152-232990.webp"/>
+<script src="/jquery-editable-select.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/jquery-editable-select.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+<style>
+</style>
+</head>
+<body>
+<div id="menu">
+</div>
 <div class="main-cont">
-		<script type="text/javascript">
+	<script type="text/javascript">
 		$("#menu").load("/menu");
 		var drivers = {}, reportDetails = {};
 		var actions = JSON.parse('{"select1":"William","select2":"CollectionAmount"}');
@@ -57,24 +52,22 @@
 					}
 				});
 		}
-		</script>
-<h1>Drivers Fleet Management</h1>
-<div style="
-    float: left;
-    margin-right: 120px;
-">
+	</script>
+	<h1>Drivers Fleet Management</h1>
+	<div style=" float: left; margin-right: 120px; ">
 		<span>Drivers:</span>
 		<select class="form-control" style="width:169px" id="select1">
 		</select>
-		</div><div style="margin-top:10px">
-		<span>  Details:</span>
-		<select class="form-control" style="width:169px"  id="select2">
+	</div>
+	<div style="margin-top:10px">
+		<span> Details:</span>
+		<select class="form-control" style="width:169px" id="select2">
 		</select>
-		</div>
-		<hr/>
-<div id='chartContainer2' style='display:inline-block'>
+	</div>
+	<hr/>
+	<div id='chartContainer2' style='display:inline-block'>
 		<h1><span class="last-selected">William</span></h1>
-		<h2>driver: <span ID="last-selected1">Collection Amount</span></h2>
+		<h2>driver: <span id="last-selected1">Collection Amount</span></h2>
 		<script type="text/javascript">
 			var svg2 = dimple.newSvg('#chartContainer2', 600,400);
 			var ChartInstance;
@@ -88,7 +81,6 @@
 				ChartInstance.addLegend(60, 10, 510, 20, "right");
 				ChartInstance.draw(1000);
 				});
-
 			$( document ).ready(function() {
 				LoadData("/getDrivers",'#select1', "Driver name",'.last-selected',[drawBarSVGX , drawBarPIE]);
 				LoadData("/getreportparams",'#select2', "ReportFor",'#last-selected1',drawBarSVGY);
@@ -111,10 +103,9 @@
 				});
 			 }
 		</script>
-		</div>
-
+	</div>
 	<div id='PiechartContainer12' style='display:inline-block'>
-		<br >
+		<br>
 		<h3>Share By CollectionAmount, PendingSettlement, DriverEarnings, Incentives </h3>
         <h4><i>*For the month of <span id="MonthID">Month</span> 2018 </i><h4>
 					<!--
@@ -129,8 +120,6 @@
 		<script type="text/javascript">
 			var svg12 = dimple.newSvg("#PiechartContainer12", 590, 400);
 			var ChartInstance1;
-
-
 			d3.json('/getconsolidateddate?name=' + actions["select1"], function(data) {
 				$('#MonthID').html(data[0].Month);
 
@@ -189,7 +178,6 @@
 				ChartInstance1.draw();
 				*/
 				});
-
 			function drawBarPIE(actions)
 			 {
 				d3.json('/getconsolidateddate?name=' + actions["select1"], function(data) {
@@ -197,10 +185,8 @@
 					ChartInstance1.draw();
 				});
 			 }
-
 		</script>
 	</div>
-
 </div>
- </body>
+</body>
 </html>

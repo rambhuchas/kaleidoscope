@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="/d3.v3.min.js"></script>
+<script src="/dimple.v2.1.2.min.js"></script>
+<script src="/jquery-3.3.1.min.js"></script>
+<link rel="icon" type="image/png" href="/car-152-232990.webp"/>
+<script src="/jquery-editable-select.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/jquery-editable-select.min.css"/>
+<link rel="stylesheet" type="text/css" href="/fullcalendar.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+<script src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/moment.min.js"></script>
+<script src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/fullcalendar.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+<div id="menu">
+</div>
+<div class="main-cont">
+	<script type="text/javascript">
+		$("#menu").load("/menu");
+		var drivers = {}, reportDetails = {};
+		var actions = JSON.parse('{"select1":"William","select2":"CollectionAmount"}');
+		function LoadHolidays()
+		{
+			$.ajax({
+					type: "GET",
+					url: "/getHolidays",
+					success: function(data){						
+						$('#calendar').fullCalendar({
+							header: {
+								left: 'prev,next today',
+								center: 'title',
+								right: 'month,agendaWeek,agendaDay,listWeek'
+							},
+							defaultDate: '2018-11-16',
+							navLinks: true,
+							editable: true,
+							eventLimit: true,
+							events:data,
+							customButtons: {
+								addEventButton: {
+								text: 'Add new event',
+								click: function () {
+									var dateStr = prompt('Enter date in YYYY-MM-DD format');
+									var date = moment(dateStr);
+
+									if (date.isValid()) {
+									$('#calendar').fullCalendar('renderEvent', {
+										title: 'Dynamic event',
+										start: date,
+										allDay: true
+									});
+									} else {
+									alert('Invalid Date');
+									}
+
+								}
+								}
+							},
+							dayClick: function (date, jsEvent, view) {
+								var date = moment(date);
+
+								if (date.isValid()) {
+								$('#calendar').fullCalendar('renderEvent', {
+									title: 'Dynamic event from date click',
+									start: date,
+									allDay: true
+								});
+								} else {
+								alert('Invalid');
+								}
+							},
+						});
+					}
+			});
+		}
+	</script>
+	<h1>Historical Data</h1>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
+	Holiday Calendar</button>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="calendar">					 
+				</div>
+				<div class="modal-footer">
+										
+				</div>
+			</div>
+		</div>
+	</div>
+	<p>
+		<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">What went good</a>
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">What went wrong</button>
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Exceeds Expectation</button>
+	</p>
+	<div class="row">
+		<div class="col">
+			<div class="collapse multi-collapse" id="multiCollapseExample1">
+				<div class="card text-center">
+					<div class="card-header">
+						 Featured
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Special title treatment</h5>
+						<p class="card-text">
+							With supporting text below as a natural lead-in to additional content.
+						</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+					<div class="card-footer text-muted">
+						 2 days ago
+					</div>
+				</div>
+				<ul class="list-group list-group-horizontal-xl">
+					<li class="list-group-item">Cras justo odio</li>
+					<li class="list-group-item">Dapibus ac facilisis in</li>
+					<li class="list-group-item">Morbi leo risus</li>
+				</ul>
+				<div class="jumbotron">
+						<h1 class="display-4">Hello, world!</h1>
+						<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+						<hr class="my-4">
+						<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+						<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="collapse multi-collapse" id="multiCollapseExample2">
+					<div class="card text-center">
+							<div class="card-header">
+								 Featured
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Special title treatment</h5>
+								<p class="card-text">
+									With supporting text below as a natural lead-in to additional content.
+								</p>
+								<a href="#" class="btn btn-primary">Go somewhere</a>
+							</div>
+							<div class="card-footer text-muted">
+								 2 days ago
+							</div>
+						</div>
+						<ul class="list-group list-group-horizontal-xl">
+							<li class="list-group-item">Cras justo odio</li>
+							<li class="list-group-item">Dapibus ac facilisis in</li>
+							<li class="list-group-item">Morbi leo risus</li>
+						</ul>
+						<div class="jumbotron">
+								<h1 class="display-4">Hello, world!</h1>
+								<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+								<hr class="my-4">
+								<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+								<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+						</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="collapse multi-collapse" id="multiCollapseExample3">
+					<div class="card text-center">
+							<div class="card-header">
+								 Featured
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Special title treatment</h5>
+								<p class="card-text">
+									With supporting text below as a natural lead-in to additional content.
+								</p>
+								<a href="#" class="btn btn-primary">Go somewhere</a>
+							</div>
+							<div class="card-footer text-muted">
+								 2 days ago
+							</div>
+						</div>
+						<ul class="list-group list-group-horizontal-xl">
+							<li class="list-group-item">Cras justo odio</li>
+							<li class="list-group-item">Dapibus ac facilisis in</li>
+							<li class="list-group-item">Morbi leo risus</li>
+						</ul>
+						<div class="jumbotron">
+								<h1 class="display-4">Hello, world!</h1>
+								<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+								<hr class="my-4">
+								<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+								<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+						</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		LoadHolidays();	
+	});
+</script>
+</body>
+</html>
