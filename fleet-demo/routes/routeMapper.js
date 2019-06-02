@@ -34,8 +34,9 @@ module.exports = function(app){
 	/**** Vehicle***/
 	app.get('/getVehicles', routes.fleetReportService.getVehicleNames);
 	app.get('/getVehiclePerf', routes.fleetReportService.getVehiclePerf);
-
 	app.get('/getfleetreportVehicle', routes.fleetReportService.getreportdataVehicle);
 	app.get('/getconsolidateddateVehicle', routes.fleetReportService.getconsolidateddateVehicle);
+	/****************  Home page ************* */
+	app.get('/getPerformanceKeyTerms', routes.fleetReportService.getPerformanceKeyTerms);
 
 }

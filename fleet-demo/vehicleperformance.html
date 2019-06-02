@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-  	<script src="/d3.v3.min.js"></script>
-	  <script src="/dimple.v2.1.2.min.js"></script>
-		<link rel="icon" type="image/png" href="/car-152-232990.webp" />
-	  <script src="/jquery-3.3.1.min.js"></script>
-	  <script src="/jquery-editable-select.min.js"></script>
-	  <link rel="stylesheet" type="text/css" href="/jquery-editable-select.min.css"/>
-		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-
-    <style>
-
-    </style>
- </head>
- <body>
-
-	 <div id="menu"></div>
-	 <div class="main-cont">
-		<script type="text/javascript">
+<meta charset="utf-8">
+<script src="/d3.v3.min.js"></script>
+<script src="/dimple.v2.1.2.min.js"></script>
+<link rel="icon" type="image/png" href="/car-152-232990.webp"/>
+<script src="/jquery-3.3.1.min.js"></script>
+<script src="/jquery-editable-select.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/jquery-editable-select.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+<style>
+</style>
+</head>
+<body>
+<div id="menu">
+</div>
+<div class="main-cont">
+	<script type="text/javascript">
 		$("#menu").load("/menu");
-
 		var drivers = {}, reportDetails = {};
 		var actions = JSON.parse('{"select1":"VASU A","select2":"CollectionAmount"}');
 		function LoadData(method,control,value,callbackcheck, callbackFunction)
@@ -56,30 +53,26 @@
 				});
 		}
 		</script>
-<h1>vehicle performance</h1>
-<div>
+	<h1>vehicle performance</h1>
+	<div>
 		<!--<span>Drivers:</span>-->
 		<select class="form-control" style="width:169px; display:none;" id="select1">
 		</select>
-		</div><div style="margin-top:10px">
-		<span>  Select Date:</span>
-		<select class="form-control" style="width:169px; display:none;"  id="select2">
+	</div>
+	<div style="margin-top:10px">
+		<span> Select Date:</span>
+		<select class="form-control" style="width:169px; display:none;" id="select2">
 		</select>
-		<input class="form-control" type="month" id="vehicleperf-date" name="start"
-       min="2018-03" value="2019-03">
-		</div>
-		<hr/>
-    <div id='chartContainer2' style='display:inline-block'>
+		<input class="form-control" type="month" id="vehicleperf-date" name="start" min="2018-03" value="2019-03">
+	</div>
+	<hr/>
+	<div id='chartContainer2' style='display:inline-block'>
 		<!-- <h1><span class="last-selected">VASU A</span></h1> -->
-		<h2>driver: <span ID="last-selected1">Collection Amount</span></h2>
-
-
+		<h2>driver: <span id="last-selected1">Collection Amount</span></h2>
 		<script type="text/javascript">
 			var svg2 = dimple.newSvg('#chartContainer2', 600,400);
 			var ChartInstance;
 			var dateArray = $("#vehicleperf-date").val().split("-");//2018-05
-
-
 			d3.json('/getVehiclePerf?month=' + dateArray[1] + '&year=' + dateArray[0], function(data) {
 				//$('#MonthID').html(data[0].Month);
 				ChartInstance = new dimple.chart(svg2,data);
@@ -90,7 +83,6 @@
 				ChartInstance.addLegend(60, 10, 510, 20, "right");
 				ChartInstance.draw(1000);
 			});
-
 			$( document ).ready(function() {
 				//LoadData("/getVehiclePerf",'#vehicleperf-date', "Car number",'.last-selected',[drawBarSVGX]);
 				//LoadData("/getreportparams",'#select2', "ReportFor",'#last-selected1',drawBarSVGY);
@@ -104,12 +96,9 @@
 					ChartInstance.draw(1000);
 				});
 			 }
-
-
 			 $("#vehicleperf-date").change(function() {
   				 drawBarSVGX($(this).val());
   			 });
-
 			 function drawBarSVGY(actions)
 			 {
 				d3.json('/getfleetreport?name=' + actions["select1"] + '&reportfor=' + actions["select2"], function(data) {
@@ -120,9 +109,7 @@
 				});
 			 }
 		</script>
-		</div>
-
-
+	</div>
 </div>
- </body>
+</body>
 </html>

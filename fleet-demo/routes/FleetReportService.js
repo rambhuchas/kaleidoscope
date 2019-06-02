@@ -197,3 +197,26 @@ exports.getconsolidateddateVehicle = function(req, res){
          });
          connection.end()
        };
+
+/***************** Home Page */
+exports.getPerformanceKeyTerms = function(req, res){
+  console.log("GET");
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+  console.log(query);
+  var connection = mysql.createConnection({
+    host     : 'rambhuchas-dev.conmgyficnit.ap-south-1.rds.amazonaws.com',
+    user     : 'root',
+    password : 'root1234',
+    database : 'dev_01_magizhunthu'
+  });
+  connection.connect();
+  var sqlsprOrgLevelPerfReport = `CALL sprOrgLevelPerfReport(?,?)`;
+  connection.query(sqlsprOrgLevelPerfReport,[query.month, query.year], function (error, results, fields) {
+          if (error) throw error;
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify(results[0]));
+         });
+         connection.end()
+       };
+       
