@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded-sm">
   <a class="navbar-brand" href="#">Fleet Management</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -6,8 +6,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="/home"><i class="fas fa-home"></i>  Home <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
@@ -22,20 +22,10 @@
       </li>
 
       <li class="nav-item">
-          <a class="nav-link disabled" href="/#">
-            <i class="fas fa-gas-pump"></i>
-            Petrol 70₹/L - Diesel 69₹/L
-          </a>
+          <a class="nav-link" href="/forecast"><i class="far fa-calendar-alt"></i> forecast</a>
         </li>
-
       <li class="nav-item">
-        <a class="nav-link" href="/" style="
-    float: right;
-    background: #e83e8c;
-    border-radius: 3px;
-    color: #fff;
-    margin-left: 240px;
-">logout</a>
+        <a class="nav-link" href="/" style="float: right;background: #e83e8c;border-radius: 3px;color: #fff;margin-left: 240px;"><i class="fas fa-sign-out-alt"></i>  logout</a>
       </li>
 
       <!--<li class="nav-item dropdown">
@@ -55,16 +45,13 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
     </form>
   </div>
 </nav>
-
-
 <style media="screen">
   body{border: 20px solid #56baed;
   padding:50px;}
-
   .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-bottom: .5rem;
     font-weight: 500;
@@ -76,5 +63,31 @@
   padding-left:20px;
   margin-top: 20px;
 }
-
+.bg-light {
+    background-color: #9bb4cc!important;
+   
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+.navbar-light .navbar-brand {
+    color: rgba(0,0,0,.9);
+}
 </style>
+
+<script type="text/javascript">
+  $(function() {
+      // this will get the full URL at the address bar
+      var url = window.location.href;
+
+      // passes on every "a" tag
+      $(".navbar-nav.mr-auto a").each(function() {
+          // checks if its the same on the address bar
+          if (url == (this.href)) {
+              $(this).closest("li").addClass("active");
+              //for making parent of submenu active
+             $(this).closest("li").parent().parent().addClass("active");
+          }
+      });
+  });        
+</script>

@@ -220,3 +220,30 @@ exports.getPerformanceKeyTerms = function(req, res){
          connection.end()
        };
        
+/*************** Forecast Page */
+
+exports.getHolidays = function(req, res){
+  console.log("GET");
+
+  var url_parts = url.parse(req.url, true);
+  var query = url_parts.query;
+  console.log(query);
+  var connection = mysql.createConnection({
+    host     : 'rambhuchas-dev.conmgyficnit.ap-south-1.rds.amazonaws.com',
+    user     : 'root',
+    password : 'root1234',
+    database : 'dev_01_magizhunthu'
+  });
+  connection.connect();
+
+  connection.query("SELECT holiday title, DATE_FORMAT(date, '%Y-%m-%d') as start, type as description FROM `holiday_calendar` Limit 100 ",[], function (error, results, fields) {
+   if (error) throw error;
+   res.setHeader('Content-Type', 'application/json');
+   res.end(JSON.stringify(results,{depth:null}));
+   
+  });
+  connection.end()
+};
+
+
+

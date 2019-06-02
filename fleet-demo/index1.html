@@ -117,13 +117,13 @@
 							if(data[0] != null){
 								//vehicle
 								$(".card-text span.veh-nm").html(data[0].CarNumber);
-								$(".card-text span.veh-er").html(data[0].netearnvehicle);
+								$(".card-text span.veh-er").html("₹" + data[0].netearnvehicle);
 								//driver
 								$(".card-text span.driv-nm").html(data[0].driver);
-								$(".card-text span.driv-er").html(data[0].netearndriver);
+								$(".card-text span.driv-er").html("₹" + data[0].netearndriver);
 								//Total
 								$(".card-text span.tl-dis").html(data[0].TotalTripDistance);
-								$(".card-text span.tl-er").html(data[0].TotalDriverEarnings);
+								$(".card-text span.tl-er").html("₹" + data[0].TotalDriverEarnings);
 								
 								var eKM = "₹" + Math.round( (data[0].EarningsPerKm) * 100) / 100;
 								$(".card-text span.tl-ekm").html(eKM);					  
@@ -131,11 +131,17 @@
 						}
 					});
 			}
-		</script>		
-	<div class="card text-center">
+		</script>
+		<button type="button" class="btn btn-primary float-right">
+
+				<i class="fas fa-gas-pump"></i>
+				  -
+				Petrol <span class="badge badge-light">70₹/L</span>
+				Diesel <span class="badge badge-light">69₹/L</span>				  
+			</button>
+	<div class="card text-center">		
 		<div class="card-header">
 				Performance Key Terms
-
 		</div>
 		<div class="card-body">
 			

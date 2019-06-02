@@ -5,6 +5,14 @@ var router = express.Router();
 var path = require('path');
 
 module.exports = function(app){
+
+	app.get('/header', function(req,res) {
+		res.sendFile(path.resolve(__dirname + '/../header.html'));
+	});
+
+	app.get('/menu', function(req,res) {
+		res.sendFile(path.resolve(__dirname + '/../menu.html'));
+	});
 	app.get('/', function(req,res) {
 		res.sendFile(path.resolve(__dirname + '/../login.html'));
 	});
@@ -23,9 +31,11 @@ module.exports = function(app){
 	app.get('/vehicleperf', function(req,res) {
 		res.sendFile(path.resolve(__dirname + '/../vehicleperformance.html'));
 	});
-	app.get('/menu', function(req,res) {
-		res.sendFile(path.resolve(__dirname + '/../menu.html'));
+
+	app.get('/forecast', function(req,res) {
+		res.sendFile(path.resolve(__dirname + '/../forecast.html'));
 	});
+	
 
 	app.get('/getfleetreport', routes.fleetReportService.getreportdata);
 	app.get('/getDrivers', routes.fleetReportService.getDriverNames);
@@ -38,5 +48,7 @@ module.exports = function(app){
 	app.get('/getconsolidateddateVehicle', routes.fleetReportService.getconsolidateddateVehicle);
 	/****************  Home page ************* */
 	app.get('/getPerformanceKeyTerms', routes.fleetReportService.getPerformanceKeyTerms);
+	/*************** Forecast */
+	app.get('/getHolidays', routes.fleetReportService.getHolidays);
 
 }
