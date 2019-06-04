@@ -107,7 +107,7 @@
 	<div id='PiechartContainer12' style='display:inline-block'>
 		<br>
 		<h3>Share By CollectionAmount, PendingSettlement, DriverEarnings, Incentives </h3>
-        <h4><i>*For the month of <span id="MonthID">Month</span> 2018 </i><h4>
+        <h4><i>*For the month of <span id="MonthID">Month</span> 2019 </i><h4>
 					<!--
 					<h4>
 						<span>
@@ -119,11 +119,12 @@
 				-->
 		<script type="text/javascript">
 			var svg12 = dimple.newSvg("#PiechartContainer12", 590, 400);
-			var ChartInstance1;
+			//var ChartInstance1;
+			var myChart;
 			d3.json('/getconsolidateddate?name=' + actions["select1"], function(data) {
 				$('#MonthID').html(data[0].Month);
 
-				var myChart = new dimple.chart(svg12, data);
+				myChart = new dimple.chart(svg12, data);
 	      myChart.setBounds(20, 20, 460, 360)
 	      myChart.addMeasureAxis("p", "Amount");
 	      var outerRing = myChart.addSeries("AmountType", dimple.plot.pie);
@@ -181,8 +182,10 @@
 			function drawBarPIE(actions)
 			 {
 				d3.json('/getconsolidateddate?name=' + actions["select1"], function(data) {
-					ChartInstance1.data = data;
-					ChartInstance1.draw();
+					//ChartInstance1.data = data;
+					//ChartInstance1.draw();
+					myChart.data = data;
+					myChart.draw();
 				});
 			 }
 		</script>
