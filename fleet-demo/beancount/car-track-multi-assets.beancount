@@ -4,7 +4,7 @@
 ;; THIS FILE HAS BEEN AUTO-GENERATED.
 * Options
 
-option "title" "Cab Expenses Beancount File"
+option "title" "Cab Expenses File"
 option "operating_currency" "INR"
 
 * Commodities
@@ -120,5 +120,14 @@ option "operating_currency" "INR"
   Expenses:Food:Veggies                           250.00 INR
 
 2019-05-25 * "Accessories" "Advance Repayment"
-  Assets:IND:AndhraBank:Savings             -200.00 INR
-  Liabilities:AccountsPayable:Sathya                  200.00 INR
+  Assets:IND:AndhraBank:Savings             -250.00 INR
+  Liabilities:AccountsPayable:Sathya                  250.00 INR
+
+2019-06-06 * "Rental" "Driver Payment"
+  Liabilities:AccountsPayable:Sathya                  -800.00 INR
+  Expenses:Transport:Auto                           800.00 INR
+
+2019-06-07 * "Rental" "Driver Payment"
+  Liabilities:AccountsPayable:Sathya                  -800.00 INR
+  Expenses:Transport:Auto                           800.00 INR
+
