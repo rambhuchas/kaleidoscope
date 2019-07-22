@@ -13,6 +13,11 @@ module.exports = function(app){
 	app.get('/menu', function(req,res) {
 		res.sendFile(path.resolve(__dirname + '/../menu.html'));
 	});
+
+	app.get('/footer', function(req,res) {
+		res.sendFile(path.resolve(__dirname + '/../footer-dist.html'));
+	});
+
 	app.get('/', function(req,res) {
 		res.sendFile(path.resolve(__dirname + '/../login.html'));
 	});

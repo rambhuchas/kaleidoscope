@@ -106,6 +106,7 @@
 <div class="main-cont">
 		<script type="text/javascript">
 			$("#menu").load("/menu");
+			$("footer").load("/footer");
 			var drivers = {}, reportDetails = {};
 			var actions = JSON.parse('{"select1":"William","select2":"CollectionAmount"}');
 			function LoadData(method)
@@ -247,5 +248,6 @@
 		LoadData("/getPerformanceKeyTerms?month=" + month + '&year=' + year);
 	});
 </script>
+<footer></footer>
 </body>
 </html>
