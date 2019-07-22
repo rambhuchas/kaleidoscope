@@ -17,6 +17,7 @@
 		<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" media="all"/>
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
 		<link rel="stylesheet" href="css/custom.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="css/youtube-background.css" type="text/css" media="all"/>
 		<link href="//fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i%7CMontserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet"/>
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" media="all"/>
@@ -214,6 +215,37 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- Start video header 
+ 					<div class="overlay"></div>
+					<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+						<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+					</video>
+					<div class="container h-100">
+						<div class="d-flex h-100 text-center align-items-center">
+							<div class="w-100 text-white">
+								<h1 class="display-3">Video Header</h1>
+								<p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>
+							</div>
+						</div>
+					</div>-->
+ 				
+				 
+				 <!--=================================
+        = BACKGROUND HOLDER
+        ==================================-->
+        <div class="bg-holder full-wh z1">
+        
+					<!-- OVERLAY -->
+					<b data-bgholder="overlay" class="full-wh z3" data-gradient="y" data-g-colors="rgba(0, 0, 0, 0.0)|rgba(0, 0, 0, 0.9)"></b>
+					
+					<!-- YOUTUBE BACKGROUND -->
+					<div data-bgholder="video" class="videobg full-wh z1" data-videoid="n8d79M0LtfY" data-start="0"></div>
+
+			</div>
+			<!-- ======= END : BACKGROUND HOLDER =======  -->
+
+				<!-- End video header-->
 			</header>
 			<header class="header header-mobile">
 				<div class="container">
@@ -453,9 +485,13 @@
 						<div class="row">
 							<div class="col-md-8 p-0">
 								<div class="popup-video">
-									<a href="javascript:void(0)" class="md-trigger" data-modal="modal-1">
-										<img src="images/film_1.jpg" alt="" />
-									</a>
+									<!--
+
+										<a href="javascript:void(0)" class="md-trigger" data-modal="modal-1">
+										<img src="images/film_1.jpg" alt="" /></a>
+									-->
+										<iframe width="560" height="515" src="https://www.youtube.com/embed/BqPAy9jlcsU?controls=0&mode=opaque&rel=0&autohide=1&showinfo=0&wmode=transparent&rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									
 								</div>
 							</div>
 							<div class="col-md-4 pl-9 pr-9">
@@ -1024,5 +1060,6 @@
 		<script type="text/javascript" src="js/revolution.extension.navigation.min.js"></script>
 		<script type="text/javascript" src="js/revolution.extension.migration.min.js"></script>
 		<script type="text/javascript" src="js/revolution.extension.parallax.min.js"></script>
+		<script type="text/javascript" src="js/youtube.background.js"></script>
 	</body>
 </html>
