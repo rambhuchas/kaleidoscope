@@ -107,8 +107,9 @@
 	<div id='PiechartContainer12' style='display:inline-block'>
 		<br>
 		<h3>Share By CollectionAmount, PendingSettlement, DriverEarnings, Incentives </h3>
-        <h4><i>*For the month of <span id="MonthID">Month</span> 2018 </i><h4>
-					<!--
+		<h4><i>*For the month of <span id="MonthID">Month</span> 2018 </i>
+		<h4>
+		<!--
 					<h4>
 						<span>
 							NetEarnings = OperatorBill + Incentives* (Any incentives are paid directly to the proprietor Not the Driver)<br/>
@@ -122,7 +123,6 @@
 			var ChartInstance1;
 			d3.json('/getconsolidateddate?name=' + actions["select1"], function(data) {
 				$('#MonthID').html(data[0].Month);
-
 				var myChart = new dimple.chart(svg12, data);
 	      myChart.setBounds(20, 20, 460, 360)
 	      myChart.addMeasureAxis("p", "Amount");
@@ -139,20 +139,17 @@
 					var table = ChartInstance1.append('table')
 					var thead = table.append('thead')
 					var	tbody = table.append('tbody');
-
 					// append the header row
 					thead.append('tr')
 					  .selectAll('th')
 					  .data(columns).enter()
 					  .append('th')
 					    .text(function (column) { return column; });
-
 					// create a row for each object in the data
 					var rows = tbody.selectAll('tr')
 					  .data(data)
 					  .enter()
 					  .append('tr');
-
 					// create a cell in each row for each column
 					var cells = rows.selectAll('td')
 					  .data(function (row) {
@@ -163,7 +160,6 @@
 					  .enter()
 					  .append('td')
 					    .text(function (d) { return d.value; });
-
 				  return table;
 				}
 				// render the table(s)
@@ -188,5 +184,186 @@
 		</script>
 	</div>
 </div>
+<!-- START SVG CHARTS -->
+<div class="wrapper">
+		<div class="svg-container">
+			<svg version="1.1" viewBox="0 0 800 800" preserveAspectRatio="xMinYMin meet" class="svg-content" style="	">
+			<defs>
+				<marker id="arrow" markerWidth="4" markerHeight="10" viewBox="-2 -4 4 4" refX="0" refY="0" markerUnits="strokeWidth" orient="auto">
+				<polyline points="2,-2 0,0 2,2" stroke="#443c3d" stroke-width="0.75px" fill="none"></polyline>
+				</marker>
+			</defs>
+			<g class="box-group">
+					<g transform="translate(-5)">
+						<circle fill="#28a745" cx="255" cy="35" r="35" opacity="1"></circle>
+						<text x="230" y="45" font-family="Open Sans Condensed" font-size="20" stroke="none" fill="#fff" font-weight="100" style="text-transform:uppercase; letter-spacing: 1px">Start</text>
+					</g>
+		
+					<line x1="250" x2="250" y1="95" y2="250" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+					<g transform="translate(136)">
+						<rect fill="#66cc00" x="-110" y="25" rx="3" ry="3" width="90" height="50"></rect>
+						<text x="-110" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow </text>
+					</g>
+		
+					<line x1="120" x2="200" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+					<g transform="translate(268)">
+						<rect fill="#66cc00" x="-240" y="105" rx="3" ry="3" width="90" height="50"></rect>
+						<text x="-240" y="140" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow </text>
+					</g>
+		
+					<line x1="120" x2="200" y1="125" y2="125" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+					<g transform="translate(400)">
+						<rect fill="#66cc00" x="-370" y="185" rx="3" ry="3" width="90" height="50"></rect>
+						<text x="-370" y="195" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow </text>
+					</g>
+					<line x1="120" x2="200" y1="210" y2="210" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+		
+		
+					<!-- Incentives Block-->
+		
+		
+					<g transform="translate(136)">
+							<rect fill="#66cc00" x="-110" y="275" rx="3" ry="3" width="90" height="50"></rect>
+							<text x="-110" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow </text>
+						</g>
+			
+						<line x1="120" x2="200" y1="300" y2="300" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+						<g transform="translate(268)">
+							<rect fill="#66cc00" x="-240" y="365" rx="3" ry="3" width="90" height="50"></rect>
+							<text x="-240" y="140" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow </text>
+						</g>
+						
+						<line x1="120" x2="200" y1="390" y2="390" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+						<g transform="translate(400)">
+							<rect fill="#66cc00" x="-370" y="455" rx="3" ry="3" width="90" height="50"></rect>
+							<text x="-370" y="195" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow </text>
+						</g>
+						<line x1="120" x2="200" y1="480" y2="480" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+		
+						<!-- NET GROSS Block-->
+		
+						<g transform="translate(136)">
+								<rect fill="#66cc00" x="100" y="275" rx="3" ry="3" width="90" height="50"></rect>
+								<text x="-110" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow </text>
+							</g>
+				
+							<line x1="120" x2="200" y1="300" y2="300" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+							<g transform="translate(268)">
+								<rect fill="#66cc00" x="-30" y="365" rx="3" ry="3" width="90" height="50"></rect>
+								<text x="-240" y="140" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow </text>
+							</g>
+							
+							<line x1="120" x2="200" y1="390" y2="390" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+							<g transform="translate(400)">
+								<rect fill="#66cc00" x="-160" y="455" rx="3" ry="3" width="90" height="50">
+										<a xlink:href='http://www.gmail.com'>Gmail</a>
+										<foreignobject x="10" y="10" width="100" height="150">
+												<body xmlns="http://www.w3.org/1999/xhtml">
+													<div>Here is a <strong>paragraph</strong> that requires <em>word wrap</em></div>
+												</body>
+										 
+											</foreignobject>
+
+								</rect>
+								<text x="-370" y="195" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow 
+										<a xlink:href='http://www.gmail.com'>Gmail</a>
+
+								</text>
+							</g>
+							<line x1="120" x2="200" y1="480" y2="480" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+			
+				</g>
+			
+	
+	
+	
+	
+	
+	
+	
+	
+			<!-- <g class="box-group" transform="translate(0,100)" style=" display: none; ">
+			<g transform="translate(5)">
+			<rect fill="#66cc00" x="2" y="25" rx="3" ry="3" width="90" height="50"></rect>
+			<text x="16" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow <tspan x="26" dy="17">Step #7</tspan>
+			</text>
+			</g>
+			<line x1="100" x2="136" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+			<g transform="translate(136)">
+			<rect fill="#66cc00" x="2" y="25" rx="3" ry="3" width="90" height="50"></rect>
+			<text x="16" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow <tspan x="26" dy="17">Step #6</tspan>
+			</text>
+			</g>
+			<line x1="230" x2="268" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+			<g transform="translate(268)">
+			<polygon points="60,20 100,40 100,80 60,100 20,80 20,40" fill="#72508d" transform="translate(-12,-10)"></polygon>
+			<rect fill="#72508d" stroke="#72508d" stroke-width="0" x="2" y="25" rx="3" ry="3" width="90" height="50"></rect>
+			<text x="16" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#fff" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow <tspan x="26" dy="17">Step #5</tspan>
+			</text>
+			</g>
+			<line x1="362" x2="400" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" marker-start="url(#arrow)"></line>
+			<g transform="translate(400)">
+			<rect fill="#66cc00" x="2" y="25" rx="3" ry="3" width="90" height="50"></rect>
+			<text x="16" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow <tspan x="26" dy="17">Step #4</tspan>
+			</text>
+			</g>
+			</g>
+			<g class="box-group" transform="translate(0,200)" style=" display: none; ">
+			<g transform="translate(5)">
+			<rect fill="#66cc00" x="2" y="25" rx="3" ry="3" width="90" height="50"></rect>
+			<text x="16" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow <tspan x="26" dy="17">Step #8</tspan>
+			</text>
+			</g>
+			<line x1="100" x2="136" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+			<g transform="translate(136)">
+			<rect fill="#66cc00" x="2" y="25" rx="3" ry="3" width="90" height="50"></rect>
+			<text x="16" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow <tspan x="26" dy="17">Step #9</tspan>
+			</text>
+			</g>
+			<line x1="230" x2="268" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+			<g transform="translate(268)">
+			<rect fill="#66cc00" x="2" y="25" rx="3" ry="3" width="90" height="50"></rect>
+			<text x="16" y="47" font-family="Open Sans Condensed" font-size="10" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Workflow <tspan x="26" dy="17">Step #10</tspan>
+			</text>
+			</g>
+			<line x1="362" x2="400" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"></line>
+			<g transform="translate(392)">
+			<circle fill="#000" cx="55" cy="50" r="45" opacity="1"></circle>
+			<text x="37" y="58" font-family="Open Sans Condensed" font-size="20" stroke="none" fill="#f5f3e7" font-weight="100" style="text-transform:uppercase; letter-spacing: 1px">End</text>
+			</g>
+			</g> -->
+			</svg>
+		</div>
+	</div>
+<script type="text/javascript">
+		var svg = document.getElementsByTagName("svg");
+		var rect = document.getElementsByTagName("rect");
+		var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		text.setAttribute('x', '10');
+		text.setAttribute('y', '20');
+		text.setAttribute('fill', '#000');
+		text.textContent = 'Hello, I am a blah blah blah blah blah';
+	</script>
+<style>
+		.wrapper {
+			padding: 50px 100px;
+		}
+		.svg-container { 
+			display: inline-block;
+			position: relative;
+			width: 100%;
+			padding-bottom: 100%;
+			vertical-align: middle; 
+			overflow: hidden; 
+			background: #fff;
+		}
+		.svg-content { 
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+</style>
+<!-- END SVG CHARTS -->
 </body>
 </html>
