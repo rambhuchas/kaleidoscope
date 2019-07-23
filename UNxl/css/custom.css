@@ -1822,3 +1822,13 @@ header .overlay {
 }
 
 /**********************************************/
+ 
+.section-bg-holder{
+    position: absolute;
+    display: block;
+    top: 0;
+    padding: 100px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
