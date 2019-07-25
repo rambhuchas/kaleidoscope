@@ -1775,8 +1775,7 @@ Theme Name: 9Studio
 header {
   position: relative;
   background-color: black;
-  height: 75vh;
-  min-height: 25rem;
+   
   width: 100%;
   overflow: hidden;
 }
@@ -1821,8 +1820,7 @@ header .overlay {
   }
 }
 
-/**********************************************/
- 
+/**********************************************/ 
 .section-bg-holder{
     position: absolute;
     display: block;
@@ -1831,4 +1829,155 @@ header .overlay {
     left: 0;
     width: 100%;
     z-index: 2;
+  }
+
+  .header-1.scrolling-menu{
+    background: #fff;
+  }
+  header.header-01 {
+    display: inline-block;
+    width: 100%;
+}
+  .header.headroom--not-top{
+    position: fixed !important;
+    background: #fff !important;
+    top: 0;
+    left: 0;
+    -moz-box-shadow: 0px 10px 20px rgba(0,0,0,.05);
+    -webkit-box-shadow: 0px 10px 20px rgba(0,0,0,.05);
+    box-shadow: 0px 10px 20px rgba(0,0,0,.05);
+    z-index: 999;
+  }
+
+  .vc_custom_1493871128742 {
+    padding-top:120px !important;
+    padding-bottom:90px !important;
+    background-image:url(../images/background/home_production_08.jpg?id=1174) !important;
+    background-position:center !important;
+    background-repeat:no-repeat !important;
+    background-size:cover !important;
+  }
+  .vc_custom_1493883005291 {
+    padding-top:0px !important;
+            background-image:url(../images/background/home_production_08.jpg?id=1174) !important;
+            background-position:center !important;
+    background-repeat:no-repeat !important;
+    background-size:cover !important;
+  }
+          .vc_custom_1493868329704 {
+    padding-top:100px !important;
+    padding-bottom:70px !important;
+    background-image:url(../images/home_production_02.jpg?id=1169) !important;
+    background-position:center !important;
+    background-repeat:no-repeat !important;
+    background-size:cover !important;
+  }
+  .vc_custom_1493803034520 {
+    padding-top:110px !important;
+    padding-bottom:80px !important;
+  }
+  .vc_custom_1484031445977 {
+    padding-top:100px !important;
+    padding-bottom:100px !important;
+    background:#f6f7f7 url(../images/home01_06.jpg?id=495) !important;
+    background-position:0 0 !important;
+    background-repeat:no-repeat !important;
+  }
+  .vc_custom_1483688412383 {
+    padding-top:0px !important;
+    padding-bottom:80px !important;
+    background-color:#ffffff !important;
+    background-position:center !important;
+    background-repeat:no-repeat !important;
+    background-size:cover !important;
+  }
+  .vc_custom_1483688469368 {
+    border-top-width:1px !important;
+    padding-top:50px !important;
+    padding-bottom:50px !important;
+    border-top-color:#eeeeee !important;
+    border-top-style:solid !important;
+  }
+  .vc_custom_1493803354592 {
+    padding-top:100px !important;
+    padding-bottom:100px !important;
+    background-color:#f6f7f7 !important;
+  }
+  .vc_custom_1493871077558 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1493869928248 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1493870345503 {
+    margin-bottom:30px !important;
+  }
+  .vc_custom_1493870354975 {
+    margin-bottom:30px !important;
+  }
+  .vc_custom_1493871070022 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1493870628299 {
+    background-image:url(https://ninestudio.thememove.com/file/2017/05/home_production_09.png?id=1185) !important;
+    background-position:center !important;
+    background-repeat:no-repeat !important;
+    background-size:cover !important;
+  }
+  .vc_custom_1493870739796 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1493871414723 {
+    padding-top:0px !important;
+    padding-right:90px !important;
+    padding-left:90px !important;
+  }
+  .vc_custom_1493871697871 {
+    margin-top:-80px !important;
+    margin-bottom:80px !important;
+  }
+  .vc_custom_1493882276377 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1493882282115 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1493867925553 {
+    margin-bottom:30px !important;
+    padding-top:0px !important;
+  }
+  .vc_custom_1493867935802 {
+    margin-bottom:30px !important;
+    padding-top:0px !important;
+  }
+  .vc_custom_1493803044598 {
+    margin-bottom:30px !important;
+  }
+  .vc_custom_1493803049953 {
+    margin-bottom:30px !important;
+  }
+  .vc_custom_1493803055308 {
+    margin-bottom:30px !important;
+  }
+  .vc_custom_1483932897384 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1493280123751 {
+    margin-bottom:0px !important;
+  }
+  .vc_custom_1483428288095 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1483428281594 {
+    margin-top:-50px !important;
+    margin-bottom:0px !important;
+  }
+  .vc_custom_1482893011951 {
+    padding-top:0px !important;
+  }
+  .vc_custom_1482913002268 {
+    margin-bottom:0px !important;
+  }
+  .vc_custom_1483934247612 {
+    padding-top: 0px !important;
   }
