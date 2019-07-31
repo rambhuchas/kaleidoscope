@@ -35,3 +35,4 @@ sites/simpletest
 
 # Ignore SimpleTest multi-site environment.
 # simpletest
+fleet-demo/node_modules
