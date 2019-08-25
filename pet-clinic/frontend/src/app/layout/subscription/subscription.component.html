@@ -1,0 +1,282 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Subscriptions'" [icon]="'fa-shopping-cart'"></app-page-header>
+    <div class="row">
+        <div class="col-lg-6">
+            <form role="form-inline">
+                <div class="form-row">
+                    <div class="form-group col-md-4 col-lg-6">
+                        <label for="companyName" class="mr-2 col-form-label-sm">MSISDN:&nbsp;</label>
+                        <input
+                            type="text"
+                            class="form-control form-control-sm"
+                            autocomplete="off"
+                            [(ngModel)]="msisdn"
+                            name="companyName"
+                            id="companyName"
+                            placeholder="Enter MSISDN"
+                            required=""
+                            pattern="^.+$"
+                            value=""
+                        />
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button type="button" class="btn btn-outline-primary" (click)="getSubscriptionStatus()">
+                            Fetch Status
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" *ngFor="let singleSubscription of subscriptionTransaction" (click)="onSelect(singleSubscription)">
+        <div class="col-lg-12">
+            <div class="card mb-3">
+                <div
+                    class="card-header text-white"
+                    [ngClass]="{
+                        'bg-success': singleSubscription.status == 'Active',
+                        'bg-primary': singleSubscription.status == 'Grace',
+                        'bg-secondary': singleSubscription.status == 'Suspended',
+                        'bg-info': singleSubscription.status == 'In-Retry'
+                    }"
+                >
+                    <div class="row col-lg-12 d-flex">
+                        <div class="col-lg-6"><strong>MSISDN: </strong>{{ singleSubscription.msisdn }}</div>
+                        <div class="col-lg-3">
+                            <strong>Revenue So Far: </strong>&nbsp;<i class="fa fa-inr"></i>{{ singleSubscription.amountCharged }}&nbsp;
+                        </div>
+                        <div class="col-lg-3 text-right">
+                            <strong>Status: </strong>&nbsp;<i class="fa fa-fw fa-check"></i>{{ singleSubscription.status }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row col-lg-12 clearfix">
+                        <div class="well span12">
+                            <strong>Name: </strong>{{ singleSubscription.prodName }}<br />
+                            <strong>Channel: </strong>{{ singleSubscription.subChannelName }}<br />
+                            <strong>Subscription Requested: </strong>{{ singleSubscription.firstChargedDate }}<br />
+                            <strong>Last Retry Date: </strong>{{ singleSubscription.lastChargeTriedDate }}<br />
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row col-lg-12">
+                        <form class="form-inline mb-3">
+                            <span> <strong>Choose the Date Range </strong>From: &nbsp; </span>
+                            <div class="form-group">
+                                <div class="input-group datepicker-input">
+                                    <input
+                                        class="form-control"
+                                        placeholder="yyyy-mm-dd"
+                                        name="dpStart"
+                                        [(ngModel)]="startDateObj"
+                                        ngbDatepicker
+                                        #d1="ngbDatepicker"
+                                    />
+                                    <button class="input-group-addon" (click)="d1.toggle()" type="button">
+                                        <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
+                                        <span class="fa fa-calendar"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <span>
+                                &nbsp; To: &nbsp;
+                            </span>
+                            <div class="form-group">
+                                <div class="input-group datepicker-input">
+                                    <input
+                                        class="form-control"
+                                        placeholder="yyyy-mm-dd"
+                                        name="dpEnd"
+                                        [(ngModel)]="endDateObj"
+                                        ngbDatepicker
+                                        #d2="ngbDatepicker"
+                                    />
+                                    <button class="input-group-addon" (click)="d2.toggle()" type="button">
+                                        <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
+                                        <span class="fa fa-calendar"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span>&nbsp;</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    (click)="isCollapsed = false"
+                                    [attr.aria-expanded]="!isCollapsed"
+                                    aria-controls="collapseExample"
+                                >
+                                    Fetch Details
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- <p>
+                      <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+                          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                          Toggle
+                      </button>
+                  </p> -->
+                    <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                        <div class="card">
+                            <div class="card-body table-responsive">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Transaction Time</th>
+                                            <th>Action</th>
+                                            <th>Status</th>
+                                            <th>Price</th>
+                                            <th>Valid Until</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2019-08-12 15:52:59.0</td>
+                                            <td>Subscription Renewal</td>
+                                            <td>Success</td>
+                                            <th>50.0</th>
+                                            <th>-</th>
+                                        </tr>
+                                        <tr>
+                                            <td>2019-08-10 15:52:59.0</td>
+                                            <td>Subscription Renewal</td>
+                                            <td>Success</td>
+                                            <th>50.0</th>
+                                            <th>2019-08-11 15:52:59.0</th>
+                                        </tr>
+                                        <tr>
+                                            <td>2019-08-09 15:50:59.0</td>
+                                            <td>Initial Subscription</td>
+                                            <td>Success</td>
+                                            <th>50.0</th>
+                                            <th>2019-08-10 15:50:59.0</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header text-white bg-secondary">
+                    <div class="row col-lg-12 d-flex">
+                        <div class="col-lg-6"><strong>MSISDN: </strong>234-875-345-8207</div>
+                        <div class="col-lg-3"><strong>Revenue So Far: </strong>&nbsp;<i class="fa fa-inr"></i>35000&nbsp;</div>
+                        <div class="col-lg-3 text-right"><strong>Status: </strong>&nbsp;<i class="fa fa-fw fa-pause-circle"></i>&nbsp;</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row col-lg-12 clearfix">
+                        <div class="well span12">
+                            <strong>Name: </strong>News<br />
+                            <strong>Channel: </strong>WAP<br />
+                            <strong>Subscription Requested: </strong>2019-08-09 15:48:40.0<br />
+                            <strong>Last Retry Date: </strong>2019-08-12 15:48:40.0<br />
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row col-lg-12">
+                        <form class="form-inline mb-3">
+                            <span> <strong>Choose the Date Range </strong>From: &nbsp; </span>
+                            <div class="form-group">
+                                <div class="input-group datepicker-input">
+                                    <input
+                                        class="form-control"
+                                        placeholder="yyyy-mm-dd"
+                                        name="dpStart"
+                                        [(ngModel)]="startDateObj"
+                                        ngbDatepicker
+                                        #d1="ngbDatepicker"
+                                    />
+                                    <button class="input-group-addon" (click)="d1.toggle()" type="button">
+                                        <span class="fa fa-calendar"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <span>
+                                &nbsp; To: &nbsp;
+                            </span>
+                            <div class="form-group">
+                                <div class="input-group datepicker-input">
+                                    <input
+                                        class="form-control"
+                                        placeholder="yyyy-mm-dd"
+                                        name="dpEnd"
+                                        [(ngModel)]="endDateObj"
+                                        ngbDatepicker
+                                        #d2="ngbDatepicker"
+                                    />
+                                    <button class="input-group-addon" (click)="d2.toggle()" type="button">
+                                        <span class="fa fa-calendar"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span>&nbsp;</span>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    (click)="isCollapsed2 = false"
+                                    [attr.aria-expanded]="!isCollapsed2"
+                                    aria-controls="collapseExample"
+                                >
+                                    Fetch Details
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="collapseExample" [ngbCollapse]="isCollapsed2">
+                        <div class="card">
+                            <div class="card-body table-responsive">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Transaction Time</th>
+                                            <th>Action</th>
+                                            <th>Status</th>
+                                            <th>Price</th>
+                                            <th>Valid Until</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2019-08-12 15:52:59.0</td>
+                                            <td>Subscription Renewal</td>
+                                            <td>Success</td>
+                                            <th>50.0</th>
+                                            <th>-</th>
+                                        </tr>
+                                        <tr>
+                                            <td>2019-08-10 15:52:59.0</td>
+                                            <td>Subscription Renewal</td>
+                                            <td>Success</td>
+                                            <th>50.0</th>
+                                            <th>2019-08-11 15:52:59.0</th>
+                                        </tr>
+                                        <tr>
+                                            <td>2019-08-09 15:50:59.0</td>
+                                            <td>Initial Subscription</td>
+                                            <td>Success</td>
+                                            <th>50.0</th>
+                                            <th>2019-08-10 15:50:59.0</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+</div>

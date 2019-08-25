@@ -1,0 +1,33 @@
+<div *ngIf="inverted;then content else other_content"></div>
+<ng-template #content>
+  <li class="timeline-inverted">
+      <div class="timeline-badge {{cardStatus}}"><i class="fa fa-{{badgeIcon}}"></i>
+      </div>
+      <div class="timeline-panel">
+          <div class="timeline-heading">
+              <h4 class="timeline-title">{{heading}}</h4>
+              <p><i class="fa fa-clock-o"></i><small class="text-muted">{{messageTime}}</small>
+              </p>
+          </div>
+          <div class="timeline-body">
+              <p>{{message}}</p>
+          </div>
+      </div>
+  </li>
+</ng-template>
+<ng-template #other_content>
+  <li>
+      <div class="timeline-badge {{cardStatus}}"><i class="fa fa-{{badgeIcon}}"></i>
+      </div>
+      <div class="timeline-panel">
+          <div class="timeline-heading">
+              <h4 class="timeline-title">{{heading}}</h4>
+              <p><i class="fa fa-clock-o"></i><small class="text-muted">{{messageTime}}</small>
+              </p>
+          </div>
+          <div class="timeline-body">
+              <p>{{message}}</p>
+          </div>
+      </div>
+  </li>
+</ng-template>
