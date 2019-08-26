@@ -38,12 +38,14 @@ export class SubscriptionComponent implements OnInit {
     }
 
     onSelect(singleSubscription: SubscriptionTransaction) {
-        const startDate = this.startDateObj.year + '-' + this.startDateObj.month + '-' + this.startDateObj.day;
-        const endDate = this.endDateObj.year + '-' + this.endDateObj.month + '-' + this.endDateObj.day;
+        // const startDate = this.startDateObj.year + '-' + this.startDateObj.month + '-' + this.startDateObj.day;
+        // const endDate = this.endDateObj.year + '-' + this.endDateObj.month + '-' + this.endDateObj.day;
+        const startDate = '1900-01-01';
+        const endDate = '2100-12-31';
         this.subService.getSubscriptionHistory(singleSubscription, startDate, endDate).subscribe(
             subTransObservable => {
                 this.selectedSubscriptionHistory = subTransObservable;
-                console.log(this.subscriptionTransaction);
+                console.log(this.selectedSubscriptionHistory);
             },
             error => (this.errorMessage = error as any)
         );

@@ -6,10 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { SubscriptionRoutingModule } from './subscription-routing.module';
 import { SubscriptionComponent } from './subscription.component';
 import { PageHeaderModule } from '../../shared';
-import { BsComponentModule } from '../bs-component/bs-component.module'
+import { BsComponentModule } from '../bs-component/bs-component.module';
+
+import { SubHistoryComponent } from './components';
 
 @NgModule({
     imports: [CommonModule, SubscriptionRoutingModule, PageHeaderModule, BsComponentModule, NgbModule, FormsModule],
-    declarations: [SubscriptionComponent]
+    declarations: [SubscriptionComponent, SubHistoryComponent]
 })
 export class SubscriptionModule {}
