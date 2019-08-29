@@ -1,0 +1,83 @@
+==
+<!-- Nav -->
+<nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top navbar-autohide" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ 'home'|page }}">October Demo</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li class="separator hidden-xs"></li>
+                <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Basic concepts</a></li>
+                <li class="{% if this.page.id == 'ajax' %}active{% endif %}"><a href="{{ 'ajax'|page }}">AJAX framework</a></li>
+                <li class="{% if this.page.id == 'plugins' %}active{% endif %}"><a href="{{ 'plugins'|page }}">Plugin components</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+	<header id="masthead" class="site-header">
+	<div id="main-logo-area">
+		<h1 class="site-title" id="main-logo">
+		<a id="main-logo-link" href="/" rel="home">
+		<img src="themes/demo/assets/images/logo.png" alt="Liberty" class="hidden-xs">
+		<img src="themes/demo/assets/images/logo.png" alt="Liberty" class="hidden-sm hidden-md hidden-lg visible-xs"></a>
+		</h1>
+	</div>
+	<div id="promo" class="hidden-xs">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="menu-top-menu-container">
+						<ul id="menu-top-menu" class="top-nav-menu">
+							<li id="menu-item-840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-840">
+							<a href="#" key="ABOUT" class="lang">About Us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="transl-tion">
+		<div id="en-gb" style="float: left; margin: 0px 5px;">
+			English
+		</div>
+		<label class="switch">
+		<input type="checkbox" class="translate" checked>
+		<span class="slider round"></span>
+		</label>
+		<div id="zh-tw" style="float: right; margin: 0px 5px;">
+			தமிழ்
+		</div>
+	</div>
+	<div id="site-branding" class="header-main">
+		<div class="container">
+			<nav id="primary-navigation" class="site-navigation primary-navigation">
+			<div class="menu-main-menu-container">
+				<ul id="menu-main-menu" class="nav-menu">
+					<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-36"><a href="#" key="HOME" class="lang" style="padding-right: 35px; padding-left: 35px;"> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+			<nav id="primary-navigation2" class="site-navigation primary-navigation">
+			<div class="menu-main-menu-2-container">
+				<ul id="menu-main-menu-2" class="nav-menu">
+					<li id="menu-item-893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-893"><a href="#vision/" key="VISION" class="lang">Vision</a></li>
+					<li id="menu-item-890" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-890"><a href="#" class="open-popup lang" key="DONATE" data-id="donation_dialog" data-animation="flipRight">Donate</a>
+					</li>
+					<li id="menu-item-893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-893"><a href="#contact/" key="CONTACT" class="lang">Contact</a></li>
+				</ul>
+			</div>
+			</nav>
+		</div>
+	</div>
+	</header>
