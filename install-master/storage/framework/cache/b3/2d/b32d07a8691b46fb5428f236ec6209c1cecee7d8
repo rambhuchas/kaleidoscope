@@ -1,0 +1,116 @@
+1568729012a:1:{s:15:"site/header.htm";a:6:{s:8:"fileName";s:15:"site/header.htm";s:7:"content";s:2613:"==
+<header id="masthead" class="site-header">
+	<div id="main-logo-area">
+		<h1 class="site-title" id="main-logo">
+		<a id="main-logo-link" href="/" rel="home">
+		<img src="themes/demo/assets/images/logo.png" alt="Liberty" class="hidden-xs">
+		<img src="themes/demo/assets/images/logo.png" alt="Liberty" class="hidden-sm hidden-md hidden-lg visible-xs"></a>
+		</h1>
+	</div>
+	<div id="promo" class="hidden-xs">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="menu-top-menu-container">
+						<ul id="menu-top-menu" class="top-nav-menu">
+							<li id="menu-item-840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-840">
+							<a href="#" key="ABOUT" class="lang">About Us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="transl-tion">
+		<div id="en-gb" style="float: left; margin: 0px 5px;">
+			English
+		</div>
+		<label class="switch">
+		<input type="checkbox" class="translate" checked>
+		<span class="slider round"></span>
+		</label>
+		<div id="zh-tw" style="float: right; margin: 0px 5px;">
+			தமிழ்
+		</div>
+	</div>
+	<div id="site-branding" class="header-main">
+		<div class="container">
+			<nav id="primary-navigation" class="site-navigation primary-navigation">
+			<div class="menu-main-menu-container">
+				<ul id="menu-main-menu" class="nav-menu">
+					<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-36"><a href="#" key="HOME" class="lang" style="padding-right: 35px; padding-left: 35px;"> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+			<nav id="primary-navigation2" class="site-navigation primary-navigation">
+			<div class="menu-main-menu-2-container">
+				<ul id="menu-main-menu-2" class="nav-menu">
+					<li id="menu-item-893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-893"><a href="#vision/" key="VISION" class="lang">Vision</a></li>
+					<li id="menu-item-890" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-890"><a href="#" class="open-popup lang" key="DONATE" data-id="donation_dialog" data-animation="flipRight">Donate</a>
+					</li>
+					<li id="menu-item-893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-893"><a href="#contact/" key="CONTACT" class="lang">Contact</a></li>
+				</ul>
+			</div>
+			</nav>
+		</div>
+	</div>
+	</header>";s:5:"mtime";i:1567096060;s:6:"markup";s:2609:"<header id="masthead" class="site-header">
+	<div id="main-logo-area">
+		<h1 class="site-title" id="main-logo">
+		<a id="main-logo-link" href="/" rel="home">
+		<img src="themes/demo/assets/images/logo.png" alt="Liberty" class="hidden-xs">
+		<img src="themes/demo/assets/images/logo.png" alt="Liberty" class="hidden-sm hidden-md hidden-lg visible-xs"></a>
+		</h1>
+	</div>
+	<div id="promo" class="hidden-xs">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="menu-top-menu-container">
+						<ul id="menu-top-menu" class="top-nav-menu">
+							<li id="menu-item-840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-840">
+							<a href="#" key="ABOUT" class="lang">About Us</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="transl-tion">
+		<div id="en-gb" style="float: left; margin: 0px 5px;">
+			English
+		</div>
+		<label class="switch">
+		<input type="checkbox" class="translate" checked>
+		<span class="slider round"></span>
+		</label>
+		<div id="zh-tw" style="float: right; margin: 0px 5px;">
+			தமிழ்
+		</div>
+	</div>
+	<div id="site-branding" class="header-main">
+		<div class="container">
+			<nav id="primary-navigation" class="site-navigation primary-navigation">
+			<div class="menu-main-menu-container">
+				<ul id="menu-main-menu" class="nav-menu">
+					<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-36"><a href="#" key="HOME" class="lang" style="padding-right: 35px; padding-left: 35px;"> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+			<nav id="primary-navigation2" class="site-navigation primary-navigation">
+			<div class="menu-main-menu-2-container">
+				<ul id="menu-main-menu-2" class="nav-menu">
+					<li id="menu-item-893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-893"><a href="#vision/" key="VISION" class="lang">Vision</a></li>
+					<li id="menu-item-890" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-890"><a href="#" class="open-popup lang" key="DONATE" data-id="donation_dialog" data-animation="flipRight">Donate</a>
+					</li>
+					<li id="menu-item-893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-893"><a href="#contact/" key="CONTACT" class="lang">Contact</a></li>
+				</ul>
+			</div>
+			</nav>
+		</div>
+	</div>
+	</header>";s:4:"code";N;s:17:"_PARSER_ERROR_INI";s:0:"";}}

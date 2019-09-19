@@ -1981,3 +1981,7 @@ header .overlay {
   .vc_custom_1483934247612 {
     padding-top: 0px !important;
   }
+
+  #film-gallery-carousel_2 .film-gallery-carousel-item-inner img{
+margin:0px 60px;
+  }
