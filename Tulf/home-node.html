@@ -1,8 +1,3 @@
-title = "Demonstration"
-url = "/"
-layout = "default"
-is_hidden = 0
-==
 <div id="main" class="site-main nopadding">
 		<div class="fw-page-builder-content">
 			<section id="section-5c97af52d7d9f" class="liberty_section nopadding-left-right tbWow fadeIn" style=" ">
@@ -92,7 +87,7 @@ is_hidden = 0
 						}else{
 							revapi10 = tpj("#rev_slider_10_1").show().revolution({
 								sliderType:"standard",
-								jsFileLocation:"themes/demo/assets/script/",
+								jsFileLocation:"assets/script/",
 								sliderLayout:"fullwidth",
 								dottedOverlay:"none",
 								delay:7000,
@@ -349,33 +344,33 @@ $('.home-counter').counterUp({
 					</div>
 				</div>
 				<script type="text/javascript">
-					jQuery(document).ready(function(){
-						jQuery('#hp-latest-news-carousel.tb-posts-carousel').slick({
-							slidesToShow: 3,
-							slidesToScroll: 1,
-							infinite: true,
-							autoplay: true,
-							autoplaySpeed: 5000,
-							speed: 600,
-							responsive: [
-									{
-									breakpoint: 767,
-										settings: {
-											slidesToShow: 2,
-											slidesToScroll: 1
-										}
-									},
-									{
-									breakpoint: 480,
-									settings: {
-										slidesToShow: 1,
-										slidesToScroll: 1
-									}
-								}
-							]
-						});
-				    });
-				</script>
+jQuery(document).ready(function(){
+	jQuery('#hp-latest-news-carousel.tb-posts-carousel').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+  		infinite: true,
+	  	autoplay: true,
+	  	autoplaySpeed: 5000,
+  		speed: 600,
+		responsive: [
+		{
+		  breakpoint: 767,
+		  settings: {
+		    slidesToShow: 2,
+		    slidesToScroll: 1
+		  }
+		},
+		{
+		  breakpoint: 480,
+		  settings: {
+		    slidesToShow: 1,
+		    slidesToScroll: 1
+		  }
+		}
+		]
+	});
+});
+		</script>
 			</div>
 		</div>
 	</div>
