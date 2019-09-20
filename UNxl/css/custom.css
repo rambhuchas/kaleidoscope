@@ -1985,3 +1985,6 @@ header .overlay {
   #film-gallery-carousel_2 .film-gallery-carousel-item-inner img{
 margin:0px 60px;
   }
+  .logo-carousel .logo-item{
+    margin:0px 15px;
+  }
